@@ -1,0 +1,116 @@
+html{
+    background-color: gray;
+    height: 100%;
+}
+
+body{
+    position: relative;
+    min-height: 100%;
+    padding-top: 5em;
+}
+
+/*==================================================================
+ ==================================================================*/
+
+#menu h1{
+    display: inline;
+    position:relative;
+    bottom: 5px;
+}
+
+#menu{
+    text-align: center !important;
+    padding-right: 15px;
+}
+
+.navbar-header{
+    padding-left: 10px;
+}
+
+#menu li{
+    min-width: 110px;
+}
+
+#menu li:hover a{
+    background-color: gray;
+    color: white;
+    border-radius: 6px 6px 0 0;
+}
+
+#menu li:first-child{
+    border-left: none;
+}
+
+#menu li:last-child{
+    border-right: none;
+}
+
+#menu li.active a{
+    border-radius: 6px 6px 0 0;
+}
+
+#menu .dropdown-menu{
+    text-align: left;
+}
+
+/*==================================================================
+============================ For HOME =============================
+ ==================================================================*/
+
+#section_logo{
+    text-align:center;
+    position: relative;
+}
+
+#logo{
+    margin-top:3em;
+}
+
+/*==================================================================
+ ==================================================================*/
+
+section{
+    
+}
+
+label{
+    min-width: 100px;
+}
+
+textarea{
+    min-width: 60%;
+    min-height: 8em;
+}
+
+.path_article{
+    color: inherit;
+}
+
+.path_article:hover{
+    color: inherit;
+}
+
+.panel-default {
+    height: 12em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.panel-success{
+    height: 16em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/*==================================================================
+ ==================================================================*/
+
+footer{
+    text-align: center;
+    border-top: solid black 1px;
+}
+
+footer h3{
+    margin: 0;
+    padding:0;
+}

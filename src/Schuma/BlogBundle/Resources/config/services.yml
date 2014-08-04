@@ -1,0 +1,7 @@
+parameters:
+#    schuma_blog.example.class: Schuma\BlogBundle\Example
+
+services:
+#    schuma_blog.example:
+#        class: %schuma_blog.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

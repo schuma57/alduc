@@ -1,0 +1,39 @@
+# src/Schuma/BlogBundle/Resources/config/routing.yml
+
+schuma_blog_main:
+    path: /
+    defaults: {_controller: SchumaBlogBundle:Blog:main}
+
+
+schuma_blog_presentation:
+    path: /presentation
+    defaults: {_controller: SchumaBlogBundle:Blog:presentation}
+
+
+schuma_blog_articles:
+    path: /articles
+    defaults: {_controller: SchumaBlogBundle:Blog:articles}
+
+
+schuma_blog_promo:
+    path: /promo
+    defaults: {_controller: SchumaBlogBundle:Blog:promo}
+    
+   
+schuma_blog_voirArticle:
+    path: /article/{id}
+    defaults: {_controller: SchumaBlogBundle:Blog:voirArticle}
+    requirements:
+        id: \d+
+
+    
+schuma_blog_ajouter:
+    path: /ajouter
+    defaults: {_controller: SchumaBlogBundle:Blog:addArticle}
+
+
+schuma_blog_editArticle:
+    path: /edit_article/{id}
+    defaults: {_controller: SchumaBlogBundle:Blog:editArticle}
+    requirements:
+        id: \d+

@@ -1,0 +1,7 @@
+parameters:
+#    schuma_user.example.class: Schuma\UserBundle\Example
+
+services:
+#    schuma_user.example:
+#        class: %schuma_user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

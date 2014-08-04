@@ -1,0 +1,23 @@
+{# src/Schuma/BlogBundle/Resources/views/layout.html.twig #}
+
+{% extends "::base.html.twig" %}
+
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <section class="col-md-8 col-sm-8 col-xs-12">
+        {% block section_body %}
+
+        {% endblock %}
+        </section>
+
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <h2>Nouveautés</h2>
+            <div class="row">
+                {% render controller("SchumaBlogBundle:Blog:displayNews") %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,3 @@
+schuma_faq_homepage:
+    path:     /
+    defaults: { _controller: SchumaFaqBundle:Faq:faq }

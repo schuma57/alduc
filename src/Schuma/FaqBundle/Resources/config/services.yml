@@ -1,0 +1,7 @@
+parameters:
+#    schuma_faq.example.class: Schuma\Bundle\FaqBundle\Example
+
+services:
+#    schuma_faq.example:
+#        class: %schuma_faq.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,26 @@
+{# src/Schuma/BlogBundle/Resources/views/Blog/articles.html.twig #}
+
+{% extends "SchumaBlogBundle::layout.html.twig" %}
+
+
+{% block section_body %}
+<div class="row">
+    <h2>Les Articles</h2>
+
+    <div class="col-xs-12">
+    {% for item in list %}
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <a class="path_article" href="{{ path('schuma_blog_voirArticle', {'id' : item.id}) }}">
+                    <h2 class="panel-title">{{ item.title }} <small>{{ item.date|date('d/m/Y') }}</small> </h2> </a>
+            </div>
+            <div class="panel-body">
+            {{ item.resume }}
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+
+</div>
+{% endblock %} 

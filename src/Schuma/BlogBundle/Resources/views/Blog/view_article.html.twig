@@ -1,0 +1,17 @@
+{# src/Schuma/BlogBundle/Resources/views/Blog/view_article.html.twig #}
+
+{% extends "SchumaBlogBundle::layout.html.twig" %}
+
+
+{% block section_body %}
+<div class="row">
+
+    <div class="col-xs-12">
+        <h2>{{ article.title }}</h2>
+        <div class="well">
+            {{ article.body }}
+        </div>
+    </div>
+
+</div>
+{% endblock %} 
