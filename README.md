@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 Symfony Standard Edition
 ========================
 
@@ -170,8 +171,13 @@ Enjoy!
 [12]: http://symfony.com/doc/2.4/cookbook/assetic/asset_management.html
 [13]: http://symfony.com/doc/2.4/bundles/SensioGeneratorBundle/index.html
 =======
+=======
+>>>>>>> origin/master
 alduc
 =====
 
 site internet association alduc
+<<<<<<< HEAD
 >>>>>>> f9ed474f581cfd1a5a625b2de4f62df9d9927076
+=======
+>>>>>>> origin/master
