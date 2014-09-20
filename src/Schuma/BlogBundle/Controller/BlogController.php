@@ -18,9 +18,14 @@ class BlogController extends Controller{
             ('::base.html.twig');
     }
 
-    public function presentationAction(){
+    public function masterAction(){
         return $this->render
-            ('SchumaBlogBundle:Blog:presentation.html.twig');
+            ('SchumaBlogBundle:Blog:master.html.twig');
+    }
+
+    public function associationAction(){
+        return $this->render
+            ('SchumaBlogBundle:Blog:association.html.twig');
     }
 
 
@@ -34,6 +39,9 @@ class BlogController extends Controller{
                 array('list' => $listArticles ));
     }
 
+    /**
+     * @Security("has_role('ROLE_AUTEUR')")
+     */
     public function addArticleAction(){
         $article = new Article();
         $form = $this->createForm(new ArticleType, $article);
@@ -57,6 +65,9 @@ class BlogController extends Controller{
     }
 
 
+    /**
+     * @Security("has_role('ROLE_AUTEUR')")
+     */
     public function editArticleAction(Article $article){
         $form = $this->createForm(new ArticleEditType, $article);
 

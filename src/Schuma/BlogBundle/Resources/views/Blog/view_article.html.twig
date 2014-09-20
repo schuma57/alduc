@@ -11,6 +11,12 @@
         <div class="well">
             {{ article.body }}
         </div>
+        <p>
+            {% if is_granted("ROLE_ADMIN") %}
+                <a href="{{ path('schuma_blog_editArticle', {'id': article.id}) }}">
+                    <span class="glyphicon glyphicon-plus"></span> Editer l'article </a>
+            {% endif %}
+        </p>
     </div>
 
 </div>

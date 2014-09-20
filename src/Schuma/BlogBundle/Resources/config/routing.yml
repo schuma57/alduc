@@ -5,9 +5,14 @@ schuma_blog_main:
     defaults: {_controller: SchumaBlogBundle:Blog:main}
 
 
-schuma_blog_presentation:
-    path: /presentation
-    defaults: {_controller: SchumaBlogBundle:Blog:presentation}
+schuma_blog_master:
+    path: /master
+    defaults: {_controller: SchumaBlogBundle:Blog:master}
+
+
+schuma_blog_association:
+    path: /association
+    defaults: {_controller: SchumaBlogBundle:Blog:association}
 
 
 schuma_blog_articles:

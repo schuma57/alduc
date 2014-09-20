@@ -1,5 +1,4 @@
 html{
-    background-color: gray;
     height: 100%;
 }
 
@@ -23,6 +22,10 @@ body{
     padding-right: 15px;
 }
 
+.nav{
+    padding-left: 10%;
+}
+
 .navbar-header{
     padding-left: 10px;
 }
@@ -35,14 +38,6 @@ body{
     background-color: gray;
     color: white;
     border-radius: 6px 6px 0 0;
-}
-
-#menu li:first-child{
-    border-left: none;
-}
-
-#menu li:last-child{
-    border-right: none;
 }
 
 #menu li.active a{
@@ -63,7 +58,8 @@ body{
 }
 
 #logo{
-    margin-top:3em;
+    display: inline-block;
+    margin-top:5em;
 }
 
 /*==================================================================
@@ -71,6 +67,10 @@ body{
 
 section{
     
+}
+
+p{
+    text-align: justify;
 }
 
 label{
@@ -84,10 +84,19 @@ textarea{
 
 .path_article{
     color: inherit;
+    text-decoration: none;
 }
 
-.path_article:hover{
-    color: inherit;
+.path_article:hover {
+    text-decoration: none;
+}
+
+.path_article:visited{
+    text-decoration: none;
+}
+
+.path_article:hover .panel{
+    box-shadow: green 1px 1px 3px;
 }
 
 .panel-default {
@@ -108,9 +117,4 @@ textarea{
 footer{
     text-align: center;
     border-top: solid black 1px;
-}
-
-footer h3{
-    margin: 0;
-    padding:0;
 }

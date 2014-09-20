@@ -5,20 +5,28 @@
 
 {% block section_body %}
 <div class="row">
-    <h2>Les Articles</h2>
+    {% if is_granted("ROLE_ADMIN") %}
+        <a href="{{ path('schuma_blog_ajouter') }}">
+            <span class="glyphicon glyphicon-plus"></span> Ajouter un article </a>
+    {% endif %}
+
+    <h2>L'actualité</h2>
 
     <div class="col-xs-12">
     {% for item in list %}
+
+        <a class="path_article" href="{{ path('schuma_blog_voirArticle', {'id' : item.id}) }}">
         <div class="panel panel-default">
 
             <div class="panel-heading">
-                <a class="path_article" href="{{ path('schuma_blog_voirArticle', {'id' : item.id}) }}">
-                    <h2 class="panel-title">{{ item.title }} <small>{{ item.date|date('d/m/Y') }}</small> </h2> </a>
+
+                    <h2 class="panel-title">{{ item.title }} <small>{{ item.date|date('d/m/Y') }}</small> </h2>
             </div>
             <div class="panel-body">
             {{ item.resume }}
             </div>
         </div>
+        </a>
     {% endfor %}
     </div>
 
