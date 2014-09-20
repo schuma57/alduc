@@ -6,6 +6,7 @@ namespace Schuma\BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Schuma\BlogBundle\Entity\Article;
 use Schuma\BlogBundle\Form\ArticleType;
 use Schuma\BlogBundle\Form\ArticleEditType;
@@ -40,7 +41,7 @@ class BlogController extends Controller{
     }
 
     /**
-     * @Security("has_role('ROLE_AUTEUR')")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function addArticleAction(){
         $article = new Article();
@@ -66,7 +67,7 @@ class BlogController extends Controller{
 
 
     /**
-     * @Security("has_role('ROLE_AUTEUR')")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function editArticleAction(Article $article){
         $form = $this->createForm(new ArticleEditType, $article);

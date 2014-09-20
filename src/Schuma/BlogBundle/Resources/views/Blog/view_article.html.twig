@@ -9,7 +9,7 @@
     <div class="col-xs-12">
         <h2>{{ article.title }}</h2>
         <div class="well">
-            {{ article.body }}
+            {{ article.body|striptags('<br><h3><p><ul><li><b>')|raw }}
         </div>
         <p>
             {% if is_granted("ROLE_ADMIN") %}
