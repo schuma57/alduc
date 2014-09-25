@@ -20,6 +20,11 @@ schuma_blog_articles:
     defaults: {_controller: SchumaBlogBundle:Blog:articles}
 
 
+schuma_blog_evenement:
+    path: /evenements
+    defaults: {_controller: SchumaBlogBundle:Blog:evenements}
+
+
 schuma_blog_promo:
     path: /promo
     defaults: {_controller: SchumaBlogBundle:Blog:promo}

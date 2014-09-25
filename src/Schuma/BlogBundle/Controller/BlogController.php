@@ -29,6 +29,11 @@ class BlogController extends Controller{
             ('SchumaBlogBundle:Blog:association.html.twig');
     }
 
+    public function evenementsAction(){
+        return $this->render
+            ('SchumaBlogBundle:Blog:evenements.html.twig');
+    }
+
 
     public function articlesAction(){
         $listArticles = $this->getDoctrine()->getManager()

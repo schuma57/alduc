@@ -1,0 +1,55 @@
+{# src/Schuma/BlogBundle/Resources/views/Blog/evenements.html.twig #}
+
+{% extends "SchumaBlogBundle::layout.html.twig" %}
+
+
+{% block section_body %}
+<div class="row">
+    {% if is_granted("ROLE_ADMIN") %}
+        <a href="{{ path('') }}">
+            <span class="glyphicon glyphicon-plus"></span> Ajouter un évènement </a>
+    {% endif %}
+
+    <h2>Evènements</h2>
+
+    <!--
+
+    <div class="col-xs-12">
+    {# {% for item in list %}
+
+        <a class="path_article" href="{{ path('schuma_blog_voirArticle', {'id' : item.id}) }}">
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+
+                    <h2 class="panel-title">{{ item.title }} <small>{{ item.date|date('d/m/Y') }}</small> </h2>
+            </div>
+            <div class="panel-body">
+            {{ item.resume }}
+            </div>
+        </div>
+        </a>
+    {% endfor %}
+    </div>
+
+    #}
+    -->
+
+    <div class="col-xs-12">
+        <ul>
+            <li>Promotion 2013-2014 :
+                <ul>
+                    <li>Remise des attestations de réussite : UFR DEA, 15h</li>
+                </ul>
+            <br/>
+            <li>
+                Promotion 2014-2015 :
+                <ul>
+                    <li>Réunion de pré-rentrée : UFR DEA, 16h</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</div>
+{% endblock %} 
