@@ -38,7 +38,7 @@ class BlogController extends Controller{
     public function articlesAction(){
         $listArticles = $this->getDoctrine()->getManager()
                             ->getRepository('SchumaBlogBundle:Article')
-                            ->findAll();
+                            ->findBy(array(), array('date'=>'DESC'));
 
         return $this->render
             ('SchumaBlogBundle:Blog:articles.html.twig',
