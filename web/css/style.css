@@ -1,10 +1,9 @@
 html{
-    height: 100%;
+
 }
 
 body{
     position: relative;
-    min-height: 100%;
     padding-top: 5em;
 }
 
@@ -16,6 +15,7 @@ body{
     position:relative;
     bottom: 5px;
     font-family: serif;
+    color: #87b700;
 }
 
 #menu{
@@ -24,7 +24,7 @@ body{
 }
 
 .nav{
-    padding-left: 10%;
+    padding-left: 6%;
 }
 
 .navbar-header{
