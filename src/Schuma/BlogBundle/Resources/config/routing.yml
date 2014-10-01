@@ -15,11 +15,6 @@ schuma_blog_association:
     defaults: {_controller: SchumaBlogBundle:Blog:association}
 
 
-schuma_blog_articles:
-    path: /articles
-    defaults: {_controller: SchumaBlogBundle:Blog:articles}
-
-
 schuma_blog_evenement:
     path: /evenements
     defaults: {_controller: SchumaBlogBundle:Blog:evenements}
@@ -29,21 +24,27 @@ schuma_blog_promo:
     path: /promo
     defaults: {_controller: SchumaBlogBundle:Blog:promo}
     
-   
+
+
+schuma_blog_articles:
+    path: /articles
+    defaults: {_controller: SchumaBlogBundle:Article:articles}
+
+
 schuma_blog_voirArticle:
     path: /article/{id}
-    defaults: {_controller: SchumaBlogBundle:Blog:voirArticle}
+    defaults: {_controller: SchumaBlogBundle:Article:voirArticle}
     requirements:
         id: \d+
 
     
 schuma_blog_ajouter:
     path: /ajouter
-    defaults: {_controller: SchumaBlogBundle:Blog:addArticle}
+    defaults: {_controller: SchumaBlogBundle:Article:addArticle}
 
 
 schuma_blog_editArticle:
     path: /edit_article/{id}
-    defaults: {_controller: SchumaBlogBundle:Blog:editArticle}
+    defaults: {_controller: SchumaBlogBundle:Article:editArticle}
     requirements:
         id: \d+
