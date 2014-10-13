@@ -4,7 +4,7 @@
     <list default="true" id="e0cfa5a3-abac-4042-8b65-0690158b5d54" name="Default" comment="" />
     <ignored path="Symfony.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/base.html.twig" changelist="e0cfa5a3-abac-4042-8b65-0690158b5d54" time="1411741715980" ignored="false" />
+    <file path="/base.html.twig" changelist="e0cfa5a3-abac-4042-8b65-0690158b5d54" time="1413229728462" ignored="false" />
     <file path="/layout.html.twig" changelist="e0cfa5a3-abac-4042-8b65-0690158b5d54" time="1411928962504" ignored="false" />
     <file path="/register_content.html.twig" changelist="e0cfa5a3-abac-4042-8b65-0690158b5d54" time="1404627755781" ignored="false" />
     <file path="/promo.html.twig" changelist="e0cfa5a3-abac-4042-8b65-0690158b5d54" time="1411226202314" ignored="false" />
@@ -15,7 +15,7 @@
     <file path="/parameters.yml" changelist="e0cfa5a3-abac-4042-8b65-0690158b5d54" time="1405157380599" ignored="false" />
     <file path="/dummy.txt" changelist="e0cfa5a3-abac-4042-8b65-0690158b5d54" time="1405157487351" ignored="false" />
     <file path="/accueil.css" changelist="e0cfa5a3-abac-4042-8b65-0690158b5d54" time="1405159048061" ignored="false" />
-    <file path="/style.css" changelist="e0cfa5a3-abac-4042-8b65-0690158b5d54" time="1411742790747" ignored="false" />
+    <file path="/style.css" changelist="e0cfa5a3-abac-4042-8b65-0690158b5d54" time="1413230131555" ignored="false" />
     <file path="/app.php" changelist="e0cfa5a3-abac-4042-8b65-0690158b5d54" time="1405201179854" ignored="false" />
     <file path="/routing.yml" changelist="e0cfa5a3-abac-4042-8b65-0690158b5d54" time="1411929047736" ignored="false" />
     <file path="/BlogController.php" changelist="e0cfa5a3-abac-4042-8b65-0690158b5d54" time="1411682745749" ignored="false" />
@@ -25,7 +25,7 @@
     <file path="/add_article.html.twig" changelist="e0cfa5a3-abac-4042-8b65-0690158b5d54" time="1405849487123" ignored="false" />
     <file path="/Article.php" changelist="e0cfa5a3-abac-4042-8b65-0690158b5d54" time="1405849351696" ignored="false" />
     <file path="/ArticleRepository.php" changelist="e0cfa5a3-abac-4042-8b65-0690158b5d54" time="1405859999936" ignored="false" />
-    <file path="/view_article.html.twig" changelist="e0cfa5a3-abac-4042-8b65-0690158b5d54" time="1412142458634" ignored="false" />
+    <file path="/view_article.html.twig" changelist="e0cfa5a3-abac-4042-8b65-0690158b5d54" time="1413231944974" ignored="false" />
     <file path="/news.html.twig" changelist="e0cfa5a3-abac-4042-8b65-0690158b5d54" time="1405976452684" ignored="false" />
     <file path="/DefaultController.php" changelist="e0cfa5a3-abac-4042-8b65-0690158b5d54" time="1405977254457" ignored="false" />
     <file path="/a.dummy" changelist="e0cfa5a3-abac-4042-8b65-0690158b5d54" time="1405977053072" ignored="false" />
@@ -115,8 +115,9 @@
     <file path="/evenements.html.twig" changelist="e0cfa5a3-abac-4042-8b65-0690158b5d54" time="1411926313221" ignored="false" />
     <file path="/robots.txt" changelist="e0cfa5a3-abac-4042-8b65-0690158b5d54" time="1411740672080" ignored="false" />
     <file path="/Comment.php" changelist="e0cfa5a3-abac-4042-8b65-0690158b5d54" time="1411941378046" ignored="false" />
-    <file path="/ArticleController.php" changelist="e0cfa5a3-abac-4042-8b65-0690158b5d54" time="1412143273833" ignored="false" />
+    <file path="/ArticleController.php" changelist="e0cfa5a3-abac-4042-8b65-0690158b5d54" time="1413230899446" ignored="false" />
     <file path="/CommentRepository.php" changelist="e0cfa5a3-abac-4042-8b65-0690158b5d54" time="1412143234300" ignored="false" />
+    <file path="/error404.html.twig" changelist="e0cfa5a3-abac-4042-8b65-0690158b5d54" time="1412854736415" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,64 +137,61 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="master.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Schuma/BlogBundle/Resources/views/Blog/master.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="base.html.twig" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="48" selection-start="2464" selection-end="2481" vertical-scroll-proportion="0.0">
+            <state line="19" column="58" selection-start="961" selection-end="961" vertical-scroll-proportion="-6.3333335">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="view_article.html.twig" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="0" selection-start="298" selection-end="298" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="error404.html.twig" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/TwigBundle/views/Exception/error404.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="59" selection-start="172" selection-end="172" vertical-scroll-proportion="-4.375">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="evenements.html.twig" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Schuma/BlogBundle/Resources/views/Blog/evenements.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="18" selection-start="223" selection-end="223" vertical-scroll-proportion="-5.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout.html.twig" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Schuma/BlogBundle/Resources/views/layout.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="0" selection-start="62" selection-end="94" vertical-scroll-proportion="-1.25">
+              <folding>
+                <marker date="1411928962749" expanded="true" signature="136:572" placeholder="..." />
+                <marker date="1411928962749" expanded="true" signature="158:565" placeholder="..." />
+                <marker date="1411928962749" expanded="true" signature="213:289" placeholder="..." />
+                <marker date="1411928962749" expanded="true" signature="340:554" placeholder="..." />
+                <marker date="1411928962749" expanded="true" signature="440:539" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view_article.html.twig" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Schuma/BlogBundle/Resources/views/Blog/view_article.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="26" selection-start="1099" selection-end="1099" vertical-scroll-proportion="-8.625">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommentRepository.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Schuma/BlogBundle/Entity/CommentRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="38" selection-start="486" selection-end="486" vertical-scroll-proportion="-11.25">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add_article.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Schuma/BlogBundle/Resources/views/Blog/add_article.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="20" selection-start="1140" selection-end="1277" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommentType.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Schuma/BlogBundle/Form/CommentType.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="37" selection-start="468" selection-end="468" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="articles.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Schuma/BlogBundle/Resources/views/Blog/articles.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="8" selection-start="394" selection-end="394" vertical-scroll-proportion="0.0">
+            <state line="34" column="95" selection-start="1292" selection-end="1292" vertical-scroll-proportion="0.44335938">
               <folding />
             </state>
           </provider>
@@ -202,16 +200,25 @@
       <file leaf-file-name="Comment.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Schuma/BlogBundle/Entity/Comment.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="47" selection-start="831" selection-end="831" vertical-scroll-proportion="0.0">
+            <state line="74" column="5" selection-start="1248" selection-end="1248" vertical-scroll-proportion="38.666668">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ArticleController.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ArticleController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Schuma/BlogBundle/Controller/ArticleController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="114" column="0" selection-start="3600" selection-end="3600" vertical-scroll-proportion="2.7832031">
+            <state line="94" column="28" selection-start="3040" selection-end="3040" vertical-scroll-proportion="-10.083333">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routing.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Schuma/BlogBundle/Resources/config/routing.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="33" column="0" selection-start="669" selection-end="693" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -236,22 +243,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/Schuma/BlogBundle/Resources/views/Blog/articles.html.twig" />
         <option value="$PROJECT_DIR$/src/Schuma/BlogBundle/Resources/views/Blog/master.html.twig" />
         <option value="$PROJECT_DIR$/src/Schuma/BlogBundle/Resources/views/news.html.twig" />
         <option value="$PROJECT_DIR$/web/robots.txt" />
-        <option value="$PROJECT_DIR$/web/css/style.css" />
-        <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/src/Schuma/BlogBundle/Resources/views/Blog/association.html.twig" />
-        <option value="$PROJECT_DIR$/src/Schuma/BlogBundle/Resources/views/Blog/evenements.html.twig" />
         <option value="$PROJECT_DIR$/src/Schuma/BlogBundle/Resources/views/layout.html.twig" />
         <option value="$PROJECT_DIR$/src/Schuma/BlogBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/Schuma/BlogBundle/Controller/BlogController.php" />
-        <option value="$PROJECT_DIR$/src/Schuma/BlogBundle/Entity/Comment.php" />
         <option value="$PROJECT_DIR$/src/Schuma/BlogBundle/Form/CommentType.php" />
-        <option value="$PROJECT_DIR$/src/Schuma/BlogBundle/Resources/views/Blog/view_article.html.twig" />
         <option value="$PROJECT_DIR$/src/Schuma/BlogBundle/Entity/CommentRepository.php" />
+        <option value="$PROJECT_DIR$/app/Resources/TwigBundle/views/Exception/error404.html.twig" />
+        <option value="$PROJECT_DIR$/src/Schuma/BlogBundle/Resources/views/Blog/evenements.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
+        <option value="$PROJECT_DIR$/web/css/style.css" />
         <option value="$PROJECT_DIR$/src/Schuma/BlogBundle/Controller/ArticleController.php" />
+        <option value="$PROJECT_DIR$/src/Schuma/BlogBundle/Entity/Comment.php" />
+        <option value="$PROJECT_DIR$/src/Schuma/BlogBundle/Resources/views/Blog/view_article.html.twig" />
       </list>
     </option>
   </component>
@@ -809,6 +816,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Symfony" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="alduc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TwigBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Exception" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -819,8 +856,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../gestion.pluzix.fr" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -860,14 +897,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1346" height="733" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Framework" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22145061" sideWeight="0.6701031" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22530864" sideWeight="0.6701031" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -946,55 +983,14 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Schuma/BlogBundle/Resources/views/news.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="22" selection-start="22" selection-end="22" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Schuma/UserBundle/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Entity/Group.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Schuma/BlogBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="669" selection-end="693" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Schuma/BlogBundle/Resources/views/Blog/master.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Schuma/BlogBundle/Resources/views/Blog/articles.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="8" selection-start="394" selection-end="394" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Schuma/BlogBundle/Entity/Comment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="47" selection-start="831" selection-end="831" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1006,13 +1002,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="48" selection-start="2464" selection-end="2481" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Schuma/BlogBundle/Resources/views/Blog/add_article.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="20" selection-start="1140" selection-end="1277" vertical-scroll-proportion="0.0">
@@ -1020,9 +1009,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Schuma/BlogBundle/Resources/views/Blog/view_article.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/Schuma/BlogBundle/Entity/CommentRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="26" selection-start="1099" selection-end="1099" vertical-scroll-proportion="-8.625">
+        <state line="18" column="38" selection-start="486" selection-end="486" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Schuma/BlogBundle/Resources/views/Blog/articles.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="94" selection-start="745" selection-end="757" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Schuma/BlogBundle/Resources/views/layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="62" selection-end="94" vertical-scroll-proportion="-1.25">
+          <folding>
+            <marker date="1411928962749" expanded="true" signature="136:572" placeholder="..." />
+            <marker date="1411928962749" expanded="true" signature="158:565" placeholder="..." />
+            <marker date="1411928962749" expanded="true" signature="213:289" placeholder="..." />
+            <marker date="1411928962749" expanded="true" signature="340:554" placeholder="..." />
+            <marker date="1411928962749" expanded="true" signature="440:539" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/TwigBundle/views/Exception/error404.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="59" selection-start="172" selection-end="172" vertical-scroll-proportion="-4.375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Schuma/BlogBundle/Resources/views/Blog/evenements.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="18" selection-start="223" selection-end="223" vertical-scroll-proportion="-5.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="58" selection-start="961" selection-end="961" vertical-scroll-proportion="-6.3333335">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="298" selection-end="298" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1034,16 +1071,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Schuma/BlogBundle/Entity/CommentRepository.php">
+    <entry file="file://$PROJECT_DIR$/src/Schuma/BlogBundle/Resources/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="38" selection-start="486" selection-end="486" vertical-scroll-proportion="-11.25">
+        <state line="33" column="0" selection-start="669" selection-end="693" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Schuma/BlogBundle/Controller/ArticleController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="114" column="0" selection-start="3600" selection-end="3600" vertical-scroll-proportion="2.7832031">
+        <state line="94" column="28" selection-start="3040" selection-end="3040" vertical-scroll-proportion="-10.083333">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Schuma/BlogBundle/Entity/Comment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="5" selection-start="1248" selection-end="1248" vertical-scroll-proportion="38.666668">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Schuma/BlogBundle/Resources/views/Blog/view_article.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="95" selection-start="1292" selection-end="1292" vertical-scroll-proportion="0.44335938">
           <folding />
         </state>
       </provider>

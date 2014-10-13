@@ -32,9 +32,11 @@
 
             {% for comment in comments %}
                 <p>
-                    <h4>{{ comment.author|capitalize }}</h4>
+                    <h4>{{ comment.author|capitalize }}, <small>{{ comment.date|date('d/m/Y \\à H:i:s') }}</small></h4>
                     {{ comment.body }}
+                    {% if loop.last == false  %}
                     <hr/>
+                    {% endif %}
                 </p>
             {% endfor %}
 

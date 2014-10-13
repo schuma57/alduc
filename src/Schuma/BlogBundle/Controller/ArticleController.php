@@ -91,7 +91,8 @@ class ArticleController extends Controller{
                 $em->persist($comment);
                 $em->flush();
 
-                return $this->redirect($this->generateUrl('schuma_blog_voirArticle', $article));
+                return $this->redirect($this->generateUrl('schuma_blog_voirArticle',
+                    array('id' => $article->getId() ) ));
             }
         }
 
