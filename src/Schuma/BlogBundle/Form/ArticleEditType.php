@@ -2,13 +2,11 @@
 
 namespace Schuma\BlogBundle\Form;
 
-use Schuma\BlogBundle\Entity\Article;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class ArticleEditType extends ArticleType
 {
-        /**
+    /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */

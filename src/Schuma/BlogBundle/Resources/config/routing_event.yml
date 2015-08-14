@@ -1,0 +1,25 @@
+schuma_blog_all_event:
+    path: /
+    defaults: {_controller: SchumaBlogBundle:Event:all}
+
+schuma_blog_get_event:
+    path: /voir/{id}
+    defaults: {_controller: SchumaBlogBundle:Event:get}
+    requirements:
+        id: \d+
+
+schuma_blog_add_event:
+    path: /ajouter
+    defaults: {_controller: SchumaBlogBundle:Event:add}
+
+schuma_blog_edit_event:
+    path: /editer/{id}
+    defaults: {_controller: SchumaBlogBundle:Event:edit}
+    requirements:
+        id: \d+
+
+schuma_blog_delete_event:
+    path: /supprimer/{id}
+    defaults: {_controller: SchumaBlogBundle:Event:delete}
+    requirements:
+        id: \d+

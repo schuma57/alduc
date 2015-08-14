@@ -1,0 +1,11 @@
+{{ form_start(form, {'attr':{'class': 'well'}}) }}
+    {{ form_errors(form) }}
+
+    <div class="form-group">
+        {{ form_label(form.name, 'Nom') }}
+        {{ form_errors(form.name) }}
+        {{ form_widget(form.name, {'attr':{'class': 'form-control'}}) }}
+    </div>
+
+    {{ form_rest(form) }}
+{{ form_end(form) }}

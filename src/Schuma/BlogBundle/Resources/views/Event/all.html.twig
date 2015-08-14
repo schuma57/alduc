@@ -1,0 +1,48 @@
+{% extends "SchumaBlogBundle::layout.html.twig" %}
+
+
+{% block section_body %}
+    <div class="page-header">
+        <h2>Evènements</h2>
+    </div>
+
+    {% if is_granted("ROLE_ADMIN") %}
+        <p><a href="{{ path('schuma_blog_add_event') }}">
+            <span class="glyphicon glyphicon-plus"></span> Ajouter un évènement </a></p>
+    {% endif %}
+
+    {% for item in list %}
+        <div class="panel panel-info">
+
+            <div class="panel-heading">
+                <h3 class="panel-title">{{ item.title|title }}</h3>
+            </div>
+
+            <table class="table">
+                <tr>
+                    <th>Objet</th>
+                    <td>{{ item.object }}</td>
+                </tr>
+                <tr>
+                    <th>Lieu</th>
+                    <td>{{ item.place }}</td>
+                </tr>
+                <tr>
+                    <th>Date</th>
+                    <td>le {{ item.date.date|date("d M Y à H\\hi", "Europe/Paris") }}</td>
+                </tr>
+                {% if is_granted('ROLE_ADMIN') %}
+                <tr>
+                    <td colspan="2">
+                        <a href="{{ path('schuma_blog_edit_event', {'id': item.id}) }}">
+                            <span class="glyphicon glyphicon-edit"></span> editer cet évènement</a>
+                        <a href="{{ path('schuma_blog_delete_event', {'id': item.id}) }}">
+                            <span class="glyphicon glyphicon-trash"></span> supprimer cet évènement</a>
+                    </td>
+                </tr>
+                {% endif %}
+            </table>
+        </div>
+    {% endfor %}
+
+{% endblock %} 

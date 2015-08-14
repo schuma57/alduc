@@ -22,7 +22,7 @@ class CommentRepository extends EntityRepository
             ;
     }
 
-    function getNumberComments($articleId) {
+    function getCommentNumber($articleId) {
         return $this->createQueryBuilder('c')
             ->select('COUNT(c.id)')
             ->where('c.article = :articleId')

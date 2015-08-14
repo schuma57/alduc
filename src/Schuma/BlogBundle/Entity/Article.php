@@ -3,6 +3,7 @@
 namespace Schuma\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Schuma\BlogBundle\Model\Writable;
 
 /**
  * Article
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Schuma\BlogBundle\Entity\ArticleRepository")
  */
-class Article
+class Article extends Writable
 {
     /**
      * @var integer
@@ -183,6 +184,9 @@ class Article
         return $this->status;
     }
 
+    /**
+     * Constructor
+     */
     public function __construct(){
         $this->date = new \Datetime;
         $this->setStatus(true);

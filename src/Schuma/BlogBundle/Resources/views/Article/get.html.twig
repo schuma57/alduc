@@ -1,0 +1,62 @@
+{% extends "SchumaBlogBundle::layout.html.twig" %}
+
+
+{% block section_body %}
+    <div class="page-header text-center">
+        <h2>{{ article.title }}</h2>
+        <p><i>Publié le {{ article.date|date('d-m-Y') }} par {{ article.author.username|title }}</i></p>
+    </div>
+
+
+    <p class="text-justify">
+        <b>{{ article.resume }}</b>
+    </p>
+
+    <p class="text-justify">
+        {{ article.body|striptags('<br><h3><p><ul><li><b>')|raw }}
+    </p>
+
+    <p>
+        {% if is_granted("ROLE_ADMIN") or app.user == article.author %}
+            <a href="{{ path('schuma_blog_edit_article', {'id': article.id}) }}">
+                <span class="glyphicon glyphicon-pencil"></span> Editer l'article </a>
+
+            <a href="{{ path('schuma_blog_delete_article', {'id': article.id}) }}">
+                <span class="glyphicon glyphicon-trash"></span> Supprimer l'article </a>
+        {% endif %}
+    </p>
+
+    <div>
+        <h4 class="text-right"> {{ number }} Commentaires </h4>
+        {% if is_granted("ROLE_USER") %}
+            {{ form_start(commentForm) }}
+                {{ form_errors(commentForm) }}
+                    {{ form_errors(commentForm.body) }}
+                    {{ form_widget(commentForm.body, {'attr':{'class': 'form-control'}}) }}
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary col-xs-12">
+                            <span class="glyphicon glyphicon-ok-sign"></span> Envoyer</button>
+                    </div>
+            {{ form_end(commentForm) }}
+        {% endif %}
+
+        <br/>
+
+        {% for comment in comments %}
+            <p>
+                <h5><b>{{ comment.author.username|capitalize }}</b>,
+                    <small><i>le {{ comment.date|date('d/m/Y \\à H:i') }}</i></small></h5>
+                {{ comment.body }}
+
+                {% if is_granted("ROLE_ADMIN") or app.user == comment.author %}
+                    <br>
+                    <a href="{{ path('schuma_blog_delete_comment', {'id': comment.id}) }}">supprimer ce commentaire</a>
+                {% endif %}
+            </p>
+            {% if loop.last == false  %}
+                <hr>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %} 

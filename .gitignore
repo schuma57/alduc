@@ -1,20 +1,27 @@
 # Bootstrap
-app/bootstrap*
+/app/bootstrap*
 
 # Symfony directories
-vendor/*
-*/logs/*
-*/cache/*
-web/uploads/*
-web/bundles/*
+/vendor/
+app/logs/*
+app/cache/*
+/app/logs/*
+/app/cache/*
+!app/cache/.gitkeep
+!app/logs/.gitkeep
+
+/bin/
+/web/uploads/*
+/web/bundles/*
 
 # Configuration files
-app/config/parameters.ini
-app/config/parameters.yml
+/app/config/parameters.yml
 
 # Composer
-<<<<<<< HEAD
-#composer.phar 
-=======
 #composer.phar
->>>>>>> origin/master
+
+.idea
+.buildpath
+.project
+.settings
+/build/

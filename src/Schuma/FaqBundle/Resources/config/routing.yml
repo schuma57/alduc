@@ -1,3 +1,11 @@
-schuma_faq_homepage:
-    path:     /
-    defaults: { _controller: SchumaFaqBundle:Faq:faq }
+_question:
+    resource: "@SchumaFaqBundle/Resources/config/routing_question.yml"
+    prefix:   /questions
+
+_category:
+    resource: "@SchumaFaqBundle/Resources/config/routing_category.yml"
+    prefix:   /categories
+
+_answer:
+    resource: "@SchumaFaqBundle/Resources/config/routing_answer.yml"
+    prefix:   /reponses

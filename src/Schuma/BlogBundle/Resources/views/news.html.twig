@@ -1,9 +1,9 @@
 {% for item in news %}
-    <a class="path_article" href="{{ path('schuma_blog_voirArticle', {'id' : item.id}) }}">
+    <a class="path_article" href="{{ path('schuma_blog_get_article', {'id' : item.id}) }}">
         <div class="col-md-12 col-sm-12 col-xs-6">
         <div class="panel panel-success">
             <div class="panel-heading">
-                <h3 class="panel-title">{{ item.title }}</h3>
+                <h3 class="panel-title">{{ item.title }} <small>par {{ item.author.username|title }}</small></h3>
             </div>
             <div class="panel-body"> {{ item.resume }}</div>
         </div>

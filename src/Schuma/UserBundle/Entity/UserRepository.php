@@ -12,4 +12,11 @@ use Doctrine\ORM\EntityRepository;
  */
 class UserRepository extends EntityRepository
 {
+    public function getMailingList()
+    {
+        $qb = $this->createQueryBuilder('u');
+        $qb->select('u.email');
+
+        return $qb->getQuery()->getArrayResult();
+    }
 }

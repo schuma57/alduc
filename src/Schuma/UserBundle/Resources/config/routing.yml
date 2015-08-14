@@ -1,0 +1,3 @@
+schuma_user_all_user:
+    path:   /gestion
+    defaults: {_controller: SchumaUserBundle:User:all}

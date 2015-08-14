@@ -1,0 +1,25 @@
+schuma_blog_all_article:
+    path: /
+    defaults: {_controller: SchumaBlogBundle:Article:all}
+
+schuma_blog_get_article:
+    path: /voir/{id}
+    defaults: {_controller: SchumaBlogBundle:Article:get}
+    requirements:
+        id: \d+
+
+schuma_blog_add_article:
+    path: /ajouter
+    defaults: {_controller: SchumaBlogBundle:Article:add}
+
+schuma_blog_edit_article:
+    path: /modifier/{id}
+    defaults: {_controller: SchumaBlogBundle:Article:edit}
+    requirements:
+        id: \d+
+
+schuma_blog_delete_article:
+    path: /supprimer/{id}
+    defaults: {_controller: SchumaBlogBundle:Article:delete}
+    requirements:
+        id: \d+

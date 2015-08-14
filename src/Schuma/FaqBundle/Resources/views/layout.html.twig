@@ -4,22 +4,21 @@
 
 
 {% block body %}
-    <div class="container">
+
+    <section class="col-md-8 col-sm-8 col-xs-12">
+        <div class="page-header">
+            <h2> {% block title_faq %} La FAQ {% endblock %} </h2>
+        </div>
+
+        {% block section_body %}
+        {% endblock %}
+    </section>
+
+    <div class="col-md-4 col-sm-4 col-xs-12">
+        <h2>Dernières Questions</h2>
         <div class="row">
-            <section class="col-md-8 col-sm-8 col-xs-12">
-                <h2>FAQ</h2>
-                {% block section_body %}
-
-                {% endblock %}
-            </section>
-
-            <div class="col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 col-xs-12">
-                <h2>Dernières Questions</h2>
-                <div class="row">
-
-                </div>
-            </div>
+            {% render controller("SchumaFaqBundle:Faq:displayLastQuestions") %}
         </div>
     </div>
-{% endblock %}
 
+{% endblock %}

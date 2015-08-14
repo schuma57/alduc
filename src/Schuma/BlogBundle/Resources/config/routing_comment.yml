@@ -1,0 +1,21 @@
+schuma_blog_all_comment:
+    path: /
+    defaults: {_controller: SchumaBlogBundle:Comment:all}
+
+schuma_blog_get_comment:
+    path: /voir/{id}
+    defaults: {_controller: SchumaBlogBundle:Comment:get}
+    requirements:
+        id: \d+
+
+schuma_blog_edit_comment:
+    path: /editer/{id}
+    defaults: {_controller: SchumaBlogBundle:Comment:edit}
+    requirements:
+        id: \d+
+
+schuma_blog_delete_comment:
+    path: /supprimer/{id}
+    defaults: {_controller: SchumaBlogBundle:Comment:delete}
+    requirements:
+        id: \d+

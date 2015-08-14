@@ -3,9 +3,9 @@ security:
         Schuma\UserBundle\Entity\User: sha512
 
     role_hierarchy:
-        ROLE_AUTOR:   ROLE_USER
-        ROLE_MODO:    ROLE_AUTHOR
-        ROLE_ADMIN:   ROLE_MODO
+        ROLE_AUTOR:    ROLE_USER
+        ROLE_ADMIN:    ROLE_AUTHOR
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
         main:

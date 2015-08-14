@@ -1,0 +1,34 @@
+{# src/Schuma/BlogBundle/Resources/views/Blog/articles.html.twig #}
+
+{% extends "SchumaBlogBundle::layout.html.twig" %}
+
+
+{% block section_body %}
+
+    <div class="page-header">
+        <h2>L'actualité</h2>
+    </div>
+
+    {% if is_granted("ROLE_AUTHOR") %}
+    <p>
+        <a href="{{ path('schuma_blog_add_article') }}">
+            <span class="glyphicon glyphicon-plus"></span> Ajouter un article </a>
+    </p>
+    {% endif %}
+
+    {% for item in list %}
+        <a class="path_article" href="{{ path('schuma_blog_get_article', {'id' : item.id}) }}">
+        <div class="panel panel-default article-panel">
+
+            <div class="panel-heading">
+                <h2 class="panel-title">{{ item.title }}
+                    <small>par {{ item.author.username|title }} le {{ item.date|date('d/m/Y') }}</small> </h2>
+            </div>
+            <div class="panel-body">
+            {{ item.resume }}
+            </div>
+        </div>
+        </a>
+    {% endfor %}
+
+{% endblock %} 

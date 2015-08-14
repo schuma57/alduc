@@ -1,0 +1,57 @@
+{% extends "SchumaFaqBundle::layout.html.twig" %}
+
+{% block section_body %}
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h2 class="panel-title"> {{ question.title }}</h2>
+            <i>par {{ question.author.username|title }}</i>
+        </div>
+        <div class="panel-body">
+            <p>{{ question.text }}</p>
+        </div>
+
+        {% if is_granted("ROLE_ADMIN") or app.user == question.author %}
+        <div class="panel-footer">
+            <a href="{{ path('schuma_faq_edit_question', {'id': question.id}) }}">
+                <span class="glyphicon glyphicon-edit"></span> Editer</a>
+            <a href="{{ path('schuma_faq_edit_question', {'id': question.id}) }}">
+                <span class="glyphicon glyphicon-trash"></span> Supprimer</a>
+        </div>
+        {% endif %}
+    </div>
+
+    <div>
+        <h4 class="text-right"> {{ answerNumber }} Réponses </h4>
+        {% if is_granted("ROLE_USER") %}
+            {{ form_start(answerForm) }}
+                {{ form_errors(answerForm) }}
+                {{ form_errors(answerForm.text) }}
+                {{ form_widget(answerForm.text, {'attr':{'class': 'form-control'}}) }}
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary col-xs-12">
+                        <span class="glyphicon glyphicon-ok-sign"></span> Envoyer</button>
+                </div>
+            {{ form_end(answerForm) }}
+        {% endif %}
+
+        <br>
+
+        {% for answer in answerList %}
+            <p>
+                <h5><b>{{ answer.author.username|capitalize }}</b>,
+                    <small><i>le {{ answer.date|date('d/m/Y \\à H:i') }}</i></small></h5>
+                {{ answer.text }}
+
+                {% if is_granted("ROLE_ADMIN") or app.user == answer.author %}
+                    <br>
+                    <a href="{{ path('schuma_faq_edit_answer', {'id': answer.id}) }}">éditer cette réponse</a>
+                    <a href="{{ path('schuma_faq_delete_answer', {'id': answer.id}) }}">supprimer cette réponse</a>
+                {% endif %}
+            </p>
+            {% if loop.last == false  %}
+                <hr>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

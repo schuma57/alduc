@@ -1,10 +1,9 @@
 <?php
-// src/Schuma/BlogBundle/Controller/ArticleController.php
 
 namespace Schuma\BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Schuma\BlogBundle\Entity\Article;
 use Schuma\BlogBundle\Form\ArticleType;
@@ -15,105 +14,129 @@ use Schuma\BlogBundle\Form\CommentType;
 
 class ArticleController extends Controller{
 
-    public function articlesAction(){
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function allAction(){
         $listArticles = $this->getDoctrine()->getManager()
                             ->getRepository('SchumaBlogBundle:Article')
                             ->findBy(array(), array('date'=>'DESC'));
 
         return $this->render
-            ('SchumaBlogBundle:Blog:articles.html.twig',
+            ('SchumaBlogBundle:Article:all.html.twig',
                 array('list' => $listArticles ));
     }
 
     /**
-     * @Security("has_role('ROLE_ADMIN')")
+     * @Security("has_role('ROLE_AUTHOR')")
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function addArticleAction(){
+    public function addAction(){
         $article = new Article();
         $form = $this->createForm(new ArticleType, $article);
 
         $request = $this->get('request');
 
-        if($request->getMethod() == 'POST'){
-            $form->bind($request);
-            if($form->isValid()){
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($article);
-                $em->flush();
+        if($form->handleRequest($request)->isValid()){
+            $article->setAuthor($this->getUser());
 
-                return $this->redirect($this->generateUrl('schuma_blog_articles'));
-            }
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($article);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('schuma_blog_articles'));
         }
 
         return $this->render
-            ('SchumaBlogBundle:Blog:add_article.html.twig',
+            ('SchumaBlogBundle:Article:add.html.twig',
                 array('form'=> $form->createView() ));
     }
 
 
     /**
-     * @Security("has_role('ROLE_ADMIN')")
+     * @param Article $article
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @throws AccessDeniedException
      */
-    public function editArticleAction(Article $article){
+    public function editAction(Article $article){
+        if (false === $this->get('security.context')->isGranted('ROLE_ADMIN')
+                && $this->getUser() != $article->getAuthor()) {
+            throw new AccessDeniedException("Vous n'avez pas les droits nécessaires");
+        }
+
         $form = $this->createForm(new ArticleEditType, $article);
 
         $request = $this->get('request');
 
-        if($request->getMethod() == 'POST'){
-            $form->bind($request);
-            if($form->isValid()){
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($article);
-                $em->flush();
+        if($form->handleRequest($request)->isValid()){
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($article);
+            $em->flush();
 
-                return $this->redirect($this->generateUrl('schuma_blog_articles'));
-            }
+            return $this->redirect($this->generateUrl('schuma_blog_articles'));
         }
 
         return $this->render
-            ('SchumaBlogBundle:Blog:add_article.html.twig',
+            ('SchumaBlogBundle:Article:add.html.twig',
                 array('form'=> $form->createView() ));
     }
 
-
-    public function voirArticleAction(Article $article){
+    /**
+     * @param Article $article
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function getAction(Article $article){
         $comment = new Comment();
-        $form = $this->createForm(new CommentType, $comment);
+        $commentForm = $this->createForm(new CommentType, $comment);
 
         $request = $this->get('request');
         $em = $this->getDoctrine()->getManager();
 
-        if($request->getMethod() == 'POST'){
-            $form->bind($request);
-            if($form->isValid()){
-                $comment->setAuthor($this->getUser()->getUsername());
-                $comment->setArticle($article);
-                $em->persist($comment);
-                $em->flush();
+        if($commentForm->handleRequest($request)->isValid()){
+            $comment->setAuthor($this->getUser());
+            $comment->setArticle($article);
+            $em->persist($comment);
+            $em->flush();
 
-                return $this->redirect($this->generateUrl('schuma_blog_voirArticle',
-                    array('id' => $article->getId() ) ));
-            }
+            return $this->redirect($this->generateUrl('schuma_blog_get_article',
+                array('id' => $article->getId() ) ));
         }
 
-        $listComments = $em
+        $commentList = $em
             ->getRepository('SchumaBlogBundle:Comment')
             ->getListByArticle($article);
 
-        $numberComments = $em
-            ->getRepository('SchumaBlogBundle:Comment')
-            ->getNumberComments($article);
+        $commentNumber = count($commentList);
 
         return $this->render(
-            ('SchumaBlogBundle:Blog:view_article.html.twig'),
+            ('SchumaBlogBundle:Article:get.html.twig'),
             array('article' => $article,
-                'comments' => $listComments,
-                'form'  => $form->createView(),
-                'number' => $numberComments,
+                'comments' => $commentList,
+                'commentForm'  => $commentForm->createView(),
+                'number' => $commentNumber,
             ));
     }
 
+    /**
+     * @param Article $article
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @throws AccessDeniedException
+     */
+    public function deleteAction(Article $article){
+        if (false === $this->get('security.context')->isGranted('ROLE_ADMIN')
+                && $this->getUser() != $article->getAuthor()) {
+            throw new AccessDeniedException("Vous n'avez pas les droits nécessaires");
+        }
 
+        $this->getDoctrine()->getManager()->remove($article);
+
+        return $this->redirect($this->generateUrl('schuma_blog_all_article'));
+    }
+
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function displayNewsAction(){
         $news = $this->getDoctrine()->getManager()
             ->getRepository('SchumaBlogBundle:Article')

@@ -1,17 +1,17 @@
 <?php
-// src/Schuma/BlogBundle/Entity/Comment.php
 
 namespace Schuma\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Schuma\BlogBundle\Model\Writable;
 
 /**
- * Comment
+ * Class Comment
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Schuma\BlogBundle\Entity\CommentRepository")
  */
-class Comment
+class Comment extends Writable
 {
     /**
      * @var integer
@@ -28,13 +28,6 @@ class Comment
      * @ORM\Column(name="date", type="datetime")
      */
     private $date;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="author", type="string", length=255)
-     */
-    private $author;
 
     /**
      * @var string
@@ -85,29 +78,6 @@ class Comment
     }
 
     /**
-     * Set author
-     *
-     * @param string $author
-     * @return Comment
-     */
-    public function setAuthor($author)
-    {
-        $this->author = $author;
-
-        return $this;
-    }
-
-    /**
-     * Get author
-     *
-     * @return string
-     */
-    public function getAuthor()
-    {
-        return $this->author;
-    }
-
-    /**
      * Set body
      *
      * @param string $body
@@ -155,6 +125,9 @@ class Comment
     }
 
 
+    /**
+     * Constructor
+     */
     public function __construct()
     {
         $this->date = new \Datetime();

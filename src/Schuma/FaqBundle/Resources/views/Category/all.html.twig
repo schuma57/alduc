@@ -1,0 +1,31 @@
+{% extends "SchumaFaqBundle::layout.html.twig" %}
+
+
+{% block title_faq %} {{ parent() }} <small>- Les catégories</small> {% endblock %}
+
+{% block section_body %}
+    {% if is_granted("ROLE_USER") %}
+        <p>
+            <a href="{{ path('schuma_faq_add_category') }}">
+                <span class="glyphicon glyphicon-plus"></span> Ajouter une catégorie</a>
+        </p>
+    {% endif %}
+
+    {% if list is not null %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for item in list %}
+                <tr>
+                    <td>{{ item.name }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+{% endblock %}

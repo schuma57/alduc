@@ -1,0 +1,21 @@
+schuma_faq_all_answer:
+    path:   /
+    defaults: { _controller: SchumaFaqBundle:Answer:all }
+
+schuma_faq_get_answer:
+    path:   /voir/{id}
+    defaults: { _controller: SchumaFaqBundle:Answer:get }
+    requirements:
+        id: \d+
+
+schuma_faq_edit_answer:
+    path:   /editer/{id}
+    defaults: { _controller: SchumaFaqBundle:Answer:edit }
+    requirements:
+        id: \d+
+
+schuma_faq_delete_answer:
+    path:   /supprimer/{id}
+    defaults: { _controller: SchumaFaqBundle:Answer:delete }
+    requirements:
+        id: \d+

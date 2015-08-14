@@ -1,8 +1,24 @@
 {% extends "FOSUserBundle::layout.html.twig" %}
 
+{% block fos_user_title %}
+    <h2>Profil de {{ user.username|title }}</h2>
+{% endblock %}
+
 {% block fos_user_content %}
-{% include "FOSUserBundle:Profile:show_content.html.twig" %}
-<div>
-    <a href="{{ path('fos_user_profile_edit') }}"><span class="glyphicon glyphicon-edit"></span> Modifier le profil</a>
-</div>
+    {% trans_default_domain 'FOSUserBundle' %}
+
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>{{ 'profile.show.username'|trans }}</th>
+            <td>{{ user.username }}</td>
+        </tr>
+        <tr>
+            <th>{{ 'profile.show.email'|trans }}</th>
+            <td>{{ user.email }}</td>
+        </tr>
+    </table>
+
+    <div>
+        <a href="{{ path('fos_user_profile_edit') }}"><span class="glyphicon glyphicon-edit"></span> Modifier le profil</a>
+    </div>
 {% endblock fos_user_content %}

@@ -1,0 +1,57 @@
+<nav id="menu" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapses">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href=""> <h1>ALDUC</h1> </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="collapses">
+            <ul class="nav navbar-nav">
+                <li><a href="{{ path('schuma_blog_main') }}">
+                        <span class="glyphicon glyphicon-home"></span></a></li>
+                <li><a href="{{ path('schuma_blog_master') }}"> Le master </a></li>
+                <li><a href="{{ path('schuma_blog_association') }}"> L'association </a></li>
+                <li><a href="{{ path('schuma_blog_all_article') }}"> L'actualité </a></li>
+                <li><a href="{{ path('schuma_blog_all_event') }}"> Evènements </a></li>
+
+                {% if is_granted("ROLE_USER") %}
+                    <li><a href="{{ path('schuma_blog_promo') }}"> Promo </a></li>
+
+                    <li><a href="{{ path('schuma_faq_all_question') }}"> FAQ </a></li>
+                {% endif %}
+            </ul>
+
+            <div class="pull-right">
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    Bonjour {{ app.user.username|capitalize }}
+                    <button class="btn btn-warning navbar-btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-cog"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ path('fos_user_profile_show') }}">
+                                <span class="glyphicon glyphicon-user"></span> Profil</a></li>
+                        <li><a href="{{ path('fos_user_change_password') }}">
+                                <span class="glyphicon glyphicon-edit"></span> Changer Password</a></li>
+                        <li class="divider"></li>
+                        <li><a href="{{ path('fos_user_security_logout') }}">
+                                <span class="glyphicon glyphicon-log-out"></span> Déconnexion</a></li>
+
+                        {% if is_granted("ROLE_SUPER_ADMIN") %}
+                            <li class="divider"></li>
+                            <li><a href="{{ path('schuma_user_all_user') }}">
+                                    <span class="glyphicon glyphicon-list"></span> Liste utilisateurs</a></li>
+                        {% endif %}
+                    </ul>
+                {% else %}
+                    <a href="{{ path('fos_user_security_login') }}">
+                        <button type="button" class="btn btn-success navbar-btn">Login</button>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</nav>

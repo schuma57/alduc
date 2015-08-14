@@ -10,79 +10,55 @@
         Alduc, Association lorraine du master droit de l'urbanisme et de la construction 
     {% endblock %}</title>
     {% block stylesheets %}
-        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" type="text/css" />
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" type="text/css" />
+        <link rel="stylesheet" href="{{ asset('css/bootstrap-select.min.css') }}" type="text/css" />
         <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css" />
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('img/favicon_ALDUC.png') }}" />
 </head>
 <body>
-    <div class="container">
-        <nav id="menu" class="navbar center navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapses">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href=""> <h1>ALDUC</h1> </a>
+    <div class="container-fluid" id="main-container">
+
+        <div class="text-danger text-center">
+            <noscript>Attention ! Cette application ne peut fonctionner sans JavaScript !
+                Voici les <a href="http://www.enable-javascript.com/fr/" target="_blank">
+                    instructions pour activer JavaScript dans votre navigateur Web</a>.
+            </noscript>
+        </div>
+
+        <header class="row">
+            <div class="col-xs-12">
+            {% block alduc_menu %}
+                {% include 'menu.html.twig' %}
+            {% endblock %}
             </div>
-            <div class="collapse navbar-collapse" id="collapses">
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ path('schuma_blog_main') }}">
-                            <span class="glyphicon glyphicon-home"></span></a></li>
-                    <li><a href="{{ path('schuma_blog_master') }}"> Le master </a></li>
-                    <li><a href="{{ path('schuma_blog_association') }}"> L'association </a></li>
-                    <li><a href="{{ path('schuma_blog_articles') }}"> L'actualité </a></li>
-                    <li><a href="{{ path('schuma_blog_evenement') }}"> Evènements </a></li>
+        </header>
 
-                    {% if is_granted("ROLE_ADMIN") %}
-                    <li><a href="{{ path('schuma_blog_promo') }}"> Promo </a></li>
-
-                    <li><a href="{{ path('schuma_faq_homepage') }}"> FAQ </a></li>
-                    {% endif %}
-                </ul>
-
-                <div class="pull-right">
-                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                    Bonjour {{ app.user.username|capitalize }}
-                    <button class="btn btn-warning navbar-btn dropdown-toggle" data-toggle="dropdown">
-                        <span class="glyphicon glyphicon-cog"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ path('fos_user_profile_show') }}">
-                                <span class="glyphicon glyphicon-user"></span> Profil</a></li>
-                        <li><a href="{{ path('fos_user_change_password') }}">
-                                <span class="glyphicon glyphicon-edit"></span> Changer Password</a></li>
-                        <li class="divider"></li>
-                        <li><a href="{{ path('fos_user_security_logout') }}">
-                                <span class="glyphicon glyphicon-log-out"> Logout</a></li>
-                    </ul>
-                    {% else %}
-                    <a href="{{ path('fos_user_security_login') }}">
-                    <button type="button" class="btn btn-success navbar-btn">Login</button>
-                    </a>
-                    {% endif %}
-                </div>
-            </div>
-        </nav>
-
-
+        <section class="row">
         {% block body %}
-            <section class="container-fluid" id="section_logo">
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
-                        <img src="{{asset('img/logo_ALDUC.png')}}" id="logo"
-                            class="img-responsive img-rectangle" alt="Logo de Alduc" />
-                    </div>
-                </div>
-            </section>
         {% endblock %}
+        </section>
 
-    </div> <!--fin grand container-->
+        <footer class="row">
+            <div class="col-xs-12">
+            {% block alduc_footer %}
+                <nav id="nav-footer" class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                        <p id="text-footer" class="navbar-text col-xs-12 text-center">
+                            ALDUC - 2015
+                        </p>
+                    </div>
+                </nav>
+            {% endblock %}
+            </div>
+        </footer>
+
+    </div> <!--fin main-container-->
 
     {% block javascripts %}
         <script type="text/javascript" src="{{ asset('js/jquery2.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/bootstrap-select.min.js') }}"></script>
     {% endblock %}
 </body>
 </html>

@@ -1,0 +1,30 @@
+{% extends "SchumaFaqBundle::layout.html.twig" %}
+
+{% block title_faq %}{{ parent() }} <small>- Modifier réponse</small> {% endblock %}
+
+{% block section_body %}
+    {% if form is not null %}
+
+        {{ form_start(form, {'attr':{'class': 'form-horizontal well'}}) }}
+            {{ form_errors(form) }}
+
+            <div class="form-group">
+                {{ form_label(form.text, 'Texte', {'label_attr':{'class': 'control-label col-sm-2'}}) }}
+                {{ form_errors(form.text) }}
+                <div class="col-sm-10">
+                    {{ form_widget(form.text, {'attr':{'class': 'form-control'}}) }}
+                </div>
+            </div>
+
+            {{ form_rest(form) }}
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-ok-sign"></span> Modifier</button>
+                </div>
+            </div>
+        {{ form_end(form) }}
+
+    {% endif %}
+{% endblock %}

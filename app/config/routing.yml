@@ -8,6 +8,10 @@ schuma_faq:
     resource: "@SchumaFaqBundle/Resources/config/routing.yml"
     prefix:   /faq
 
+schuma_user:
+    resource: "@SchumaUserBundle/Resources/config/routing.yml"
+    prefix:   /utilisateurs
+
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"

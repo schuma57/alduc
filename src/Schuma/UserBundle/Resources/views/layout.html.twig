@@ -1,22 +1,21 @@
-{# src/Schuma/UserBundle/Resources/views/layout.html.twig #}
-
 {% extends "::base.html.twig" %}
 
 {% block body %}
-<div class="row">
-
+<div class="col-xs-12 col-md-10 col-md-offset-1">
     {% for key, message in app.session.flashbag.all() %}
         <div class="alert alert-{{ key }}">
             {{ message|trans({}, 'FOSUserBundle') }}
         </div>
     {% endfor %}
 
+    <div class="page-header">
+    {% block fos_user_title %}
+    {% endblock %}
+    </div>
 
     <div class="well">
     {% block fos_user_content %}
     {% endblock fos_user_content %}
     </div>
-
 </div>
-
 {% endblock %}

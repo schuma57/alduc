@@ -1,9 +1,16 @@
 html{
-
+    height: 100%;
 }
 
 body{
-    padding-top: 5em;
+    height: 100%;
+}
+
+#main-container{
+    min-height:100%;
+    padding-top: 70px;
+    padding-bottom:70px;
+    position:relative;
 }
 
 /*==================================================================
@@ -23,11 +30,11 @@ body{
     color: #ffffff;
 }
 
-.nav{
+#menu .nav{
     padding-left: 6%;
 }
 
-.navbar-header{
+#menu .navbar-header{
     padding-left: 10px;
 }
 
@@ -53,11 +60,6 @@ body{
 ============================ For HOME =============================
  ==================================================================*/
 
-#section_logo{
-    text-align:center;
-    position: relative;
-}
-
 #logo{
     display: inline-block;
     margin-top:5em;
@@ -65,10 +67,6 @@ body{
 
 /*==================================================================
  ==================================================================*/
-
-section{
-    
-}
 
 p{
     text-align: justify;
@@ -100,8 +98,8 @@ textarea{
     box-shadow: green 1px 1px 3px;
 }
 
-.panel-default {
-    height: 12em;
+.article-panel {
+    min-height: 12em;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -116,6 +114,18 @@ textarea{
  ==================================================================*/
 
 footer{
-    text-align: center;
-    border-top: solid black 1px;
+    position:absolute;
+    bottom:0;
+    margin-bottom:0;
+    width:100%;
+}
+
+#nav-footer{
+    margin-bottom:0;
+    border-radius:5px 5px 0px 0px
+}
+
+#text-footer{
+    margin-bottom: 0;
+    padding-bottom: 0;
 }

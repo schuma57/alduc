@@ -1,43 +1,40 @@
 <?php
 
-// src/Schuma/BlogBundle/Controller/BlogController.php
-
 namespace Schuma\BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 
-class BlogController extends Controller{
-
+class BlogController extends Controller
+{
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function mainAction(){
-        return $this->render
-            ('::base.html.twig');
+        return $this->render('::index.html.twig');
     }
 
-
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function masterAction(){
-        return $this->render
-            ('SchumaBlogBundle:Blog:master.html.twig');
+        return $this->render('SchumaBlogBundle:Blog:master.html.twig');
     }
 
-
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function associationAction(){
-        return $this->render
-            ('SchumaBlogBundle:Blog:association.html.twig');
+        return $this->render('SchumaBlogBundle:Blog:association.html.twig');
     }
 
-
-    public function evenementsAction(){
-        return $this->render
-            ('SchumaBlogBundle:Blog:evenements.html.twig');
-    }
-
-
+    /**
+     * @Security("has_role('ROLE_ADMIN')")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function promoAction(){
-        return $this->render
-            ('SchumaBlogBundle:Blog:promo.html.twig');
+        return $this->render('SchumaBlogBundle:Blog:promo.html.twig');
     }
 
 }
