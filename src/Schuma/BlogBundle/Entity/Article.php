@@ -10,6 +10,7 @@ use Schuma\BlogBundle\Model\Writable;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Schuma\BlogBundle\Entity\ArticleRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Article extends Writable
 {
@@ -21,13 +22,6 @@ class Article extends Writable
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date", type="date")
-     */
-    private $date;
 
     /**
      * @var string
@@ -66,29 +60,6 @@ class Article extends Writable
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set date
-     *
-     * @param \DateTime $date
-     * @return Article
-     */
-    public function setDate($date)
-    {
-        $this->date = $date;
-
-        return $this;
-    }
-
-    /**
-     * Get date
-     *
-     * @return \DateTime 
-     */
-    public function getDate()
-    {
-        return $this->date;
     }
 
     /**

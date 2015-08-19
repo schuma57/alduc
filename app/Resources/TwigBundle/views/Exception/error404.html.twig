@@ -1,15 +1,10 @@
-
 {% extends "::base.html.twig" %}
 
 {% block body %}
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <img src="{{asset('img/404.jpg')}}"
-                     class="img-responsive" alt="erreur 404" />
-            </div>
-        </div>
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+        <img src="{{asset('img/404.jpg')}}"
+             class="img-responsive text-center" alt="erreur 404" />
     </div>
 
 {% endblock %}

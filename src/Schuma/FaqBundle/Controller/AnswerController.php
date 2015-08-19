@@ -41,10 +41,8 @@ class AnswerController extends Controller
      * @throws AccessDeniedException
      */
     public function editAction(Answer $answer){
-        if (false === $this->get('security.context')->isGranted('ROLE_ADMIN') //TODO faire un service
-            && $this->getUser() != $answer->getAuthor()) {
-            throw new AccessDeniedException("Vous n'avez pas les droits nécessaires");
-        }
+        $this->get('schuma_user.security_service')
+            ->userIsAuthorOrAdminOrThrowAccessDeniedException($answer);
 
         $form = $this->createForm(new AnswerType(), $answer);
 
@@ -68,17 +66,19 @@ class AnswerController extends Controller
     /**
      * @param Answer $answer
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     * @throws AccessDeniedException
      */
     public function deleteAction(Answer $answer){
-        if (false === $this->get('security.context')->isGranted('ROLE_ADMIN')
-            && $this->getUser() != $answer->getAuthor()) {
-            throw new AccessDeniedException("Vous n'avez pas les droits nécessaires");
-        }
+        try{
+            $this->get('schuma_user.security_service')
+                ->userIsAuthorOrAdminOrThrowAccessDeniedException($answer);
 
-        $em = $this->getDoctrine()->getManager();
-        $em->remove($answer);
-        $em->flush();
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($answer);
+            $em->flush();
+        }
+        catch (AccessDeniedException $ex){
+
+        }
 
         return $this->redirect($this->get('request')->headers->get('referer'));
     }

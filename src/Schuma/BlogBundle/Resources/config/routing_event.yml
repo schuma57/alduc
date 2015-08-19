@@ -13,7 +13,7 @@ schuma_blog_add_event:
     defaults: {_controller: SchumaBlogBundle:Event:add}
 
 schuma_blog_edit_event:
-    path: /editer/{id}
+    path: /modifier/{id}
     defaults: {_controller: SchumaBlogBundle:Event:edit}
     requirements:
         id: \d+

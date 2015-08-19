@@ -10,6 +10,7 @@ use Schuma\BlogBundle\Model\Writable;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Schuma\FaqBundle\Entity\QuestionRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Question extends Writable
 {
@@ -35,13 +36,6 @@ class Question extends Writable
      * @ORM\Column(name="text", type="text")
      */
     private $text;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date", type="datetime")
-     */
-    private $date;
 
     /**
      * @ORM\ManyToOne(targetEntity="Schuma\FaqBundle\Entity\Category")
@@ -104,29 +98,6 @@ class Question extends Writable
     public function getText()
     {
         return $this->text;
-    }
-
-    /**
-     * Set date
-     *
-     * @param \DateTime $date
-     * @return Question
-     */
-    public function setDate($date)
-    {
-        $this->date = $date;
-
-        return $this;
-    }
-
-    /**
-     * Get date
-     *
-     * @return \DateTime 
-     */
-    public function getDate()
-    {
-        return $this->date;
     }
 
     /**

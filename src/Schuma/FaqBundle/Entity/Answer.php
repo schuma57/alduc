@@ -10,6 +10,7 @@ use Schuma\BlogBundle\Model\Writable;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Schuma\FaqBundle\Entity\AnswerRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Answer extends Writable
 {
@@ -21,13 +22,6 @@ class Answer extends Writable
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date", type="datetime")
-     */
-    private $date;
 
     /**
      * @var string
@@ -51,30 +45,6 @@ class Answer extends Writable
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set date
-     *
-     * @param \DateTime $date
-     *
-     * @return Answer
-     */
-    public function setDate($date)
-    {
-        $this->date = $date;
-
-        return $this;
-    }
-
-    /**
-     * Get date
-     *
-     * @return \DateTime
-     */
-    public function getDate()
-    {
-        return $this->date;
     }
 
     /**

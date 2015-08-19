@@ -1,7 +1,9 @@
 parameters:
-#    schuma_user.example.class: Schuma\UserBundle\Example
+    schuma_user.security_service.class: Schuma\UserBundle\Services\SecurityService
 
 services:
-#    schuma_user.example:
-#        class: %schuma_user.example.class%
+    schuma_user.security_service:
+        class: %schuma_user.security_service.class%
+        calls:
+            - [ setContainer,[ @service_container ] ]
 #        arguments: [@service_id, "plain_value", %parameter%]

@@ -59,6 +59,9 @@
         <script type="text/javascript" src="{{ asset('js/jquery2.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/bootstrap-select.min.js') }}"></script>
+        <script>
+            $('#collapses').find('a[href="' +location.pathname +'"]').parents('li').addClass('active');
+        </script>
     {% endblock %}
 </body>
 </html>

@@ -59,10 +59,8 @@ class ArticleController extends Controller{
      * @throws AccessDeniedException
      */
     public function editAction(Article $article){
-        if (false === $this->get('security.context')->isGranted('ROLE_ADMIN')
-                && $this->getUser() != $article->getAuthor()) {
-            throw new AccessDeniedException("Vous n'avez pas les droits nécessaires");
-        }
+        $this->get('schuma_user.security_service')
+            ->userIsAuthorOrAdminOrThrowAccessDeniedException($article);
 
         $form = $this->createForm(new ArticleEditType, $article);
 
@@ -123,10 +121,8 @@ class ArticleController extends Controller{
      * @throws AccessDeniedException
      */
     public function deleteAction(Article $article){
-        if (false === $this->get('security.context')->isGranted('ROLE_ADMIN')
-                && $this->getUser() != $article->getAuthor()) {
-            throw new AccessDeniedException("Vous n'avez pas les droits nécessaires");
-        }
+        $this->get('schuma_user.security_service')
+            ->userIsAuthorOrAdminOrThrowAccessDeniedException($article);
 
         $this->getDoctrine()->getManager()->remove($article);
 
@@ -146,5 +142,4 @@ class ArticleController extends Controller{
             ('SchumaBlogBundle::news.html.twig'),
                 array('news' => $news));
     }
-
 }

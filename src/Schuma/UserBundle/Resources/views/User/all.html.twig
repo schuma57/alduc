@@ -12,7 +12,8 @@
                 <th>ID</th>
                 <th>Username</th>
                 <th>Email</th>
-                <th>Gestion</th>
+                <th>Roles</th>
+                <th colspan="2">Gestion roles</th>
             </tr>
         </thead>
 
@@ -22,10 +23,13 @@
                     <td>{{ user.id }}</td>
                     <td>{{ user.username }}</td>
                     <td>{{ user.email }}</td>
-                    <td>
-                        <a>promote</a>
-                        <a>demote</a>
-                    </td>
+                    <td>{% for role in user.roles %} {{ role }}, {% endfor %}</td>
+                    <td><a href="{{ path('schuma_user_demote_user', {'id': user.id}) }}"
+                           role="button" class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-minus"></span></a></td>
+                    <td><a href="{{ path('schuma_user_promote_user', {'id': user.id}) }}"
+                           role="button" class="btn btn-success btn-sm">
+                            <span class="glyphicon glyphicon-plus"></span></a></td>
                 </tr>
             {% endfor %}
         </tbody>

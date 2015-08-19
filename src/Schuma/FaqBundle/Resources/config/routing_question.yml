@@ -13,7 +13,7 @@ schuma_faq_add_question:
     defaults: { _controller: SchumaFaqBundle:Faq:add }
 
 schuma_faq_edit_question:
-    path:   /editer/{id}
+    path:   /modifier/{id}
     defaults: { _controller: SchumaFaqBundle:Faq:edit }
     requirements:
         id: \d+

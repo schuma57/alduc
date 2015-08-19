@@ -12,15 +12,46 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Class Writable
  * @ORM\MappedSuperclass
+ * @ORM\HasLifecycleCallbacks
  */
 abstract class Writable
 {
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime")
+     */
+    protected $date;
+
     /**
      * @ORM\ManyToOne(targetEntity="Schuma\UserBundle\Entity\User")
      * @ORM\JoinColumn(nullable=false)
      */
     protected $author;
 
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     * @return Writable
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
 
     /**
      * Set author
@@ -43,5 +74,13 @@ abstract class Writable
     public function getAuthor()
     {
         return $this->author;
+    }
+
+    /**
+     * @ORM\PreUpdate()
+     */
+    public function preUpdate()
+    {
+        //$this->date = new \DateTime();
     }
 }

@@ -3,6 +3,7 @@
 namespace Schuma\BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Schuma\BlogBundle\Entity\Comment;
 use Schuma\BlogBundle\Form\CommentType;
@@ -34,11 +35,14 @@ class CommentController extends Controller{
     }
 
     /**
-     * @Security("has_role('ROLE_ADMIN')")
      * @param Comment $comment
      * @return \Symfony\Component\HttpFoundation\Response
+     * @throws AccessDeniedException
      */
     public function editAction(Comment $comment){
+        $this->get('schuma_user.security_service')
+            ->userIsAuthorOrAdminOrThrowAccessDeniedException($comment);
+
         $form = $this->createForm(new CommentType(), $comment);
 
         $request = $this->get('request');
@@ -48,20 +52,25 @@ class CommentController extends Controller{
             $em->persist($comment);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('schuma_blog_all_comment'));
+            return $this->redirect($this->generateUrl('schuma_blog_get_article', array(
+                'id' => $comment->getArticle()->getId(),
+            )));
         }
 
-        return $this->render('SchumaBlogBundle:Comment:add.html.twig', array(
+        return $this->render('SchumaBlogBundle:Comment:edit.html.twig', array(
             'form'=> $form->createView()
         ));
     }
 
     /**
-     * @Security("has_role('ROLE_ADMIN')")
      * @param Comment $comment
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @throws AccessDeniedException
      */
     public function deleteAction(Comment $comment){
+        $this->get('schuma_user.security_service')
+            ->userIsAuthorOrAdminOrThrowAccessDeniedException($comment);
+
         $manager = $this->getDoctrine()->getManager();
         $manager->remove($comment);
         $manager->flush();

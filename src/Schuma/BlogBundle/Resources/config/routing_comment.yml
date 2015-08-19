@@ -9,7 +9,7 @@ schuma_blog_get_comment:
         id: \d+
 
 schuma_blog_edit_comment:
-    path: /editer/{id}
+    path: /modifier/{id}
     defaults: {_controller: SchumaBlogBundle:Comment:edit}
     requirements:
         id: \d+

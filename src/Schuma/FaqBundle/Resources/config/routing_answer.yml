@@ -9,7 +9,7 @@ schuma_faq_get_answer:
         id: \d+
 
 schuma_faq_edit_answer:
-    path:   /editer/{id}
+    path:   /modifier/{id}
     defaults: { _controller: SchumaFaqBundle:Answer:edit }
     requirements:
         id: \d+

@@ -38,17 +38,28 @@
         <br>
 
         {% for answer in answerList %}
-            <p>
-                <h5><b>{{ answer.author.username|capitalize }}</b>,
-                    <small><i>le {{ answer.date|date('d/m/Y \\à H:i') }}</i></small></h5>
-                {{ answer.text }}
+            <div class="row">
+                <div class="col-xs-6">
+                    <h5 class=""><b>{{ answer.author.username|capitalize }}</b></h5>
+                </div>
+                <div class="col-xs-6 text-right">
+                    <h5><small><i>le {{ answer.date|date('d/m/Y \\à H:i') }}</i></small></h5>
+                </div>
 
-                {% if is_granted("ROLE_ADMIN") or app.user == answer.author %}
-                    <br>
-                    <a href="{{ path('schuma_faq_edit_answer', {'id': answer.id}) }}">éditer cette réponse</a>
-                    <a href="{{ path('schuma_faq_delete_answer', {'id': answer.id}) }}">supprimer cette réponse</a>
-                {% endif %}
-            </p>
+                <div class="col-xs-10">
+                    {{ answer.text }}
+                </div>
+                <div class="col-xs-2">
+                    {% if is_granted("ROLE_ADMIN") or app.user == answer.author %}
+                        <a href="{{ path('schuma_faq_edit_answer', {'id': answer.id}) }}">
+                            <span class="glyphicon glyphicon-edit"></span> éditer</a>
+                        <br>
+                        <a href="{{ path('schuma_faq_delete_answer', {'id': answer.id}) }}">
+                            <span class="glyphicon glyphicon-trash"></span> supprimer</a>
+                    {% endif %}
+                </div>
+            </div>
+
             {% if loop.last == false  %}
                 <hr>
             {% endif %}

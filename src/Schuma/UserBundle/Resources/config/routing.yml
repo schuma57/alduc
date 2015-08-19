@@ -1,3 +1,15 @@
 schuma_user_all_user:
     path:   /gestion
     defaults: {_controller: SchumaUserBundle:User:all}
+
+schuma_user_promote_user:
+    path:   /promouvoir/{id}
+    defaults: {_controller: SchumaUserBundle:User:promote}
+    requirements:
+        id: \d+
+
+schuma_user_demote_user:
+    path:   /retrograder/{id}
+    defaults: {_controller: SchumaUserBundle:User:demote}
+    requirements:
+        id: \d+

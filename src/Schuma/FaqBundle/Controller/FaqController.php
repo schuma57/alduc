@@ -94,10 +94,8 @@ class FaqController extends Controller
      * @throws AccessDeniedException
      */
     public function editAction(Question $question){
-        if (false === $this->get('security.context')->isGranted('ROLE_ADMIN')
-            && $this->getUser() != $question->getAuthor()) {
-            throw new AccessDeniedException("Vous n'avez pas les droits nécessaires");
-        }
+        $this->get('schuma_user.security_service')
+            ->userIsAuthorOrAdminOrThrowAccessDeniedException($question);
 
         $form = $this->createForm(new QuestionType(), $question);
 
@@ -124,10 +122,8 @@ class FaqController extends Controller
      * @throws AccessDeniedException
      */
     public function deleteAction(Question $question){
-        if (false === $this->get('security.context')->isGranted('ROLE_ADMIN')
-            && $this->getUser() != $question->getAuthor()) {
-            throw new AccessDeniedException("Vous n'avez pas les droits nécessaires");
-        }
+        $this->get('schuma_user.security_service')
+            ->userIsAuthorOrAdminOrThrowAccessDeniedException($question);
 
         $em = $this->getDoctrine()->getManager();
         $em->remove($question);

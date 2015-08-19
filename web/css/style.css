@@ -77,6 +77,7 @@ label{
 }
 
 textarea{
+    resize: vertical;
     min-width: 60%;
     min-height: 8em;
 }

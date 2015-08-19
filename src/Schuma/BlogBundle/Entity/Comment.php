@@ -10,6 +10,7 @@ use Schuma\BlogBundle\Model\Writable;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Schuma\BlogBundle\Entity\CommentRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Comment extends Writable
 {
@@ -23,19 +24,11 @@ class Comment extends Writable
     private $id;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date", type="datetime")
-     */
-    private $date;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="body", type="string", length=255)
      */
     private $body;
-
 
     /**
      * @ORM\ManyToOne(targetEntity="Schuma\BlogBundle\Entity\Article")
@@ -52,29 +45,6 @@ class Comment extends Writable
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set date
-     *
-     * @param \DateTime $date
-     * @return Comment
-     */
-    public function setDate($date)
-    {
-        $this->date = $date;
-
-        return $this;
-    }
-
-    /**
-     * Get date
-     *
-     * @return \DateTime 
-     */
-    public function getDate()
-    {
-        return $this->date;
     }
 
     /**
@@ -99,7 +69,6 @@ class Comment extends Writable
     {
         return $this->body;
     }
-
 
     /**
      * Set article
@@ -132,6 +101,4 @@ class Comment extends Writable
     {
         $this->date = new \Datetime();
     }
-
-
 }
