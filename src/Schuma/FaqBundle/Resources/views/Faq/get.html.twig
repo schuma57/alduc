@@ -4,19 +4,39 @@
     <div class="panel panel-primary">
         <div class="panel-heading">
             <h2 class="panel-title"> {{ question.title }}</h2>
-            <i>par {{ question.author.username|title }}</i>
+            <i>posée par {{ question.author.username|title }},
+                <small>{{ question.date|date('d/m/Y \\à H:i') }}</small></i>
         </div>
         <div class="panel-body">
             <p>{{ question.text }}</p>
         </div>
 
         {% if is_granted("ROLE_ADMIN") or app.user == question.author %}
-        <div class="panel-footer">
-            <a href="{{ path('schuma_faq_edit_question', {'id': question.id}) }}">
-                <span class="glyphicon glyphicon-edit"></span> Editer</a>
-            <a href="{{ path('schuma_faq_edit_question', {'id': question.id}) }}">
-                <span class="glyphicon glyphicon-trash"></span> Supprimer</a>
-        </div>
+            <div class="panel-footer">
+                <a href="{{ path('schuma_faq_edit_question', {'id': question.id}) }}">
+                    <span class="glyphicon glyphicon-edit"></span> Editer</a>
+                <a data-toggle="modal" data-target="#deleteThisQuestion" class="modal-link">
+                    <span class="glyphicon glyphicon-trash"></span> Supprimer</a>
+            </div>
+
+            <div class="modal fade" id="deleteThisQuestion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Confirmer suppression</h4>
+                        </div>
+                        <div class="modal-body">
+                            Attention la question sera définitivement supprimée !
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-info" data-dismiss="modal">Annuler</button>
+                            <a href="{{ path('schuma_faq_delete_question', {'id': question.id}) }}" class="btn btn-danger">
+                                <span class="glyphicon glyphicon-trash"></span> Supprimer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         {% endif %}
     </div>
 
@@ -33,36 +53,55 @@
                         <span class="glyphicon glyphicon-ok-sign"></span> Envoyer</button>
                 </div>
             {{ form_end(answerForm) }}
+            <br>
         {% endif %}
 
         <br>
-
         {% for answer in answerList %}
             <div class="row">
-                <div class="col-xs-6">
-                    <h5 class=""><b>{{ answer.author.username|capitalize }}</b></h5>
-                </div>
-                <div class="col-xs-6 text-right">
-                    <h5><small><i>le {{ answer.date|date('d/m/Y \\à H:i') }}</i></small></h5>
-                </div>
+                <div class="col-xs-2 text-right">
+                    <img src="{{ asset('img/logo-feuille.jpg') }}" alt="avatar" class="img-circle">
 
-                <div class="col-xs-10">
-                    {{ answer.text }}
-                </div>
-                <div class="col-xs-2">
+                    <br>
                     {% if is_granted("ROLE_ADMIN") or app.user == answer.author %}
                         <a href="{{ path('schuma_faq_edit_answer', {'id': answer.id}) }}">
                             <span class="glyphicon glyphicon-edit"></span> éditer</a>
                         <br>
-                        <a href="{{ path('schuma_faq_delete_answer', {'id': answer.id}) }}">
-                            <span class="glyphicon glyphicon-trash"></span> supprimer</a>
+                        <a data-toggle="modal" data-target="#deleteAnswer{{ answer.id }}" class="modal-link">
+                            <span class="glyphicon glyphicon-trash"></span> suppr.</a>
                     {% endif %}
+                </div>
+
+                <div class="col-xs-10">
+                    <h5 class=""><b>{{ answer.author.username|capitalize }}</b>
+                        <small><i> {{ answer.date|date('d/m/Y \\à H:i') }}</i></small></h5>
+                    {{ answer.text }}
                 </div>
             </div>
 
             {% if loop.last == false  %}
                 <hr>
             {% endif %}
+
+
+            <div class="modal fade" id="deleteAnswer{{ answer.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Confirmer suppression</h4>
+                        </div>
+                        <div class="modal-body">
+                            Attention cette réponse sera définitivement supprimée !
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-info" data-dismiss="modal">Annuler</button>
+                            <a href="{{ path('schuma_faq_delete_answer', {'id': answer.id}) }}" class="btn btn-danger">
+                                <span class="glyphicon glyphicon-trash"></span> Supprimer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         {% endfor %}
     </div>
 {% endblock %}

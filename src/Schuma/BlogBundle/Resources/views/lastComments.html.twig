@@ -1,0 +1,7 @@
+{% for item in lastComments %}
+    <li class="list-group-item">
+        <b>{{ item.author.username|title }}</b> a commenté l'article
+        <br>
+        <a href="{{ path('schuma_blog_get_article', {'id' : item.article.id}) }}">{{ item.article.title }}</a>
+    </li>
+{% endfor %}

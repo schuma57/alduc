@@ -19,7 +19,9 @@
         "sensio/framework-extra-bundle": "~3.0",
         "incenteev/composer-parameter-handler": "~2.0",
         "friendsofsymfony/user-bundle": "dev-master",
-        "winzou/console-bundle": "dev-master"
+        "winzou/console-bundle": "dev-master",
+        "mjohnson/decoda": "6.7.*",
+        "helios-ag/fm-bbcode-bundle": "6.7.*"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

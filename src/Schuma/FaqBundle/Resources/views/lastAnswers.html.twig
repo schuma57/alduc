@@ -1,0 +1,8 @@
+{% for item in lastAnswers %}
+    <li class="list-group-item">
+        <b>{{ item.author.username|title }}</b> a répondu à la question
+        <br>
+        <a href="{{ path('schuma_faq_get_question', {'id' : item.question.id}) }}">
+            {{ item.question.title }}</a>
+    </li>
+{% endfor %}

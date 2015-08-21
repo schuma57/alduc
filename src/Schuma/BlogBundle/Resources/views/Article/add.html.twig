@@ -1,5 +1,11 @@
 {% extends "SchumaBlogBundle::layout.html.twig" %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bbcode/themes/office-toolbar.min.css') }}" type="text/css">
+{% endblock %}
+
+
 {% block section_body %}
 
     <div class="page-header">
@@ -27,7 +33,7 @@
             {{ form_label(form.body, 'Texte : ', {'label_attr':{'class': 'control-label col-sm-2'}}) }}
             {{ form_errors(form.body) }}
             <div class="col-sm-10">
-                {{ form_widget(form.body, {'attr':{'class': 'form-control'}}) }}
+                {{ form_widget(form.body, {'attr':{'class': 'form-control bb-editor'}}) }}
             </div>
         </div>
 
@@ -41,4 +47,11 @@
         </div>
     {{ form_end(form) }}
 
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bbcode/jquery.sceditor.bbcode.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/includeAndConfigScEditor.js') }}"></script>
 {% endblock %}

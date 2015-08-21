@@ -105,10 +105,18 @@ textarea{
     text-overflow: ellipsis;
 }
 
-.panel-success{
-    height: 16em;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.myWidget{
+    height: 18em;
+    overflow-y: scroll;
+    border-width: 2px;
+}
+
+.myWidget-title{
+    color: lightcoral;
+}
+
+.modal-link:hover{
+    cursor: hand;
 }
 
 /*==================================================================

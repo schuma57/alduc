@@ -5,7 +5,7 @@
 
 {% block body %}
 
-    <section class="col-md-8 col-sm-8 col-xs-12">
+    <section class="col-md-7 col-md-offset-1 col-sm-8 col-xs-12">
         <div class="page-header">
             <h2> {% block title_faq %} La FAQ {% endblock %} </h2>
         </div>
@@ -14,10 +14,29 @@
         {% endblock %}
     </section>
 
-    <div class="col-md-4 col-sm-4 col-xs-12">
-        <h2>Dernières Questions</h2>
+    <div class="col-md-3 col-sm-4 col-xs-12">
+        <hr class="visible-xs">
+
         <div class="row">
-            {% render controller("SchumaFaqBundle:Faq:displayLastQuestions") %}
+            <div class="col-sm-12 col-xs-6">
+                <h4 class="myWidget-title">DERNI&Egrave;RES QUESTIONS</h4>
+
+                <div class="panel panel-success myWidget">
+                    <ul class="list-group">
+                        {% render controller("SchumaFaqBundle:Faq:displayLastQuestions") %}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-xs-6">
+                <h4 class="myWidget-title">DERNI&Egrave;RES R&Eacute;PONSES</h4>
+
+                <div class="panel panel-default myWidget">
+                    <ul class="list-group">
+                        {% render controller("SchumaFaqBundle:Answer:displayLastAnswers") %}
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 

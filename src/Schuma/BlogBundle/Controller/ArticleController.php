@@ -44,7 +44,7 @@ class ArticleController extends Controller{
             $em->persist($article);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('schuma_blog_articles'));
+            return $this->redirect($this->generateUrl('schuma_blog_all_article'));
         }
 
         return $this->render
@@ -71,7 +71,7 @@ class ArticleController extends Controller{
             $em->persist($article);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('schuma_blog_articles'));
+            return $this->redirect($this->generateUrl('schuma_blog_all_article'));
         }
 
         return $this->render
@@ -136,10 +136,10 @@ class ArticleController extends Controller{
     public function displayNewsAction(){
         $news = $this->getDoctrine()->getManager()
             ->getRepository('SchumaBlogBundle:Article')
-            ->getTwoLast();
+            ->getLast(10);
 
-        return $this->render(
-            ('SchumaBlogBundle::news.html.twig'),
-                array('news' => $news));
+        return $this->render('SchumaBlogBundle::news.html.twig', array(
+            'news' => $news
+        ));
     }
 }

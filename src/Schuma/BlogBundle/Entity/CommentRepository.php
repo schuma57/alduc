@@ -31,4 +31,12 @@ class CommentRepository extends EntityRepository
             ->getSingleScalarResult()
             ;
     }
+
+    public function getLast($number = 5){
+        $qb = $this->createQueryBuilder('c');
+        $qb->setMaxResults($number)
+            ->orderBy('c.date', 'DESC');
+        return $qb->getQuery()
+            ->getResult();
+    }
 }

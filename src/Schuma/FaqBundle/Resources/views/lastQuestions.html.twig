@@ -1,13 +1,7 @@
 {% for item in lastQuestions %}
-    <a class="path_article" href="{{ path('schuma_faq_get_question', {'id' : item.id}) }}">
-        <div class="col-md-12 col-sm-12 col-xs-6">
-            <div class="panel panel-success">
-                <div class="panel-heading">
-                    <h3 class="panel-title">{{ item.title }}
-                        <small><i>par {{ item.author.username|title }}</i></small></h3>
-                </div>
-                <div class="panel-body"> {{ item.text }}</div>
-            </div>
-        </div>
-    </a>
+    <li class="list-group-item">
+        <b>Par {{ item.author.username|title }}</b>
+        <br>
+        <a href="{{ path('schuma_faq_get_question', {'id' : item.id}) }}">{{ item.title }}</a>
+    </li>
 {% endfor %}

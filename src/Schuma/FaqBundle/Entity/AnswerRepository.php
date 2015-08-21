@@ -10,4 +10,12 @@ namespace Schuma\FaqBundle\Entity;
  */
 class AnswerRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getLast($number = 5){
+        $qb = $this->createQueryBuilder('a');
+        $qb->setMaxResults($number)
+            ->orderBy('a.date', 'DESC');
+
+        return $qb->getQuery()
+            ->getResult();
+    }
 }

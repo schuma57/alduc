@@ -12,10 +12,10 @@ function sendForm(form, callback) {
     });
 
     $.ajax({
-        type        : form.attr( 'method' ),
-        url         : form.attr( 'action' ),
-        data        : values,
-        success     : function(result) { callback( result ); }
+        type     : form.attr( 'method' ),
+        url      : form.attr( 'action' ),
+        data     : values,
+        success  : function(result) { callback( result ); }
     });
 }
 

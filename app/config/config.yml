@@ -67,11 +67,20 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
-    
+
+# FOS User
 fos_user:
     db_driver:     orm
     firewall_name: main
     user_class:    Schuma\UserBundle\Entity\User
     service:
             mailer: fos_user.mailer.twig_swift
-    
+
+#FM BBcode
+fm_bbcode:
+    filter_sets:
+        my_bbcode_filter:
+            strict: true
+            locale: fr
+            xhtml: true
+            filters: [ default, block, list, text, quote, image ]

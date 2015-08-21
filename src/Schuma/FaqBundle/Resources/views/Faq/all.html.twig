@@ -15,7 +15,8 @@
             <a class="path_article" href="{{ path('schuma_faq_get_question', {'id': item.id}) }}">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h2 class="panel-title"> {{ item.title }} </h2>
+                        <h2 class="panel-title"> {{ item.title }}</h2>
+                        <small>{{ item.author.username|title }}</small>
                     </div>
                     <div class="panel-body">
                         <p>{{ item.text }}</p>

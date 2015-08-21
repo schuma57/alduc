@@ -83,4 +83,17 @@ class AnswerController extends Controller
         return $this->redirect($this->get('request')->headers->get('referer'));
     }
 
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function displayLastAnswersAction(){
+        $lastAnswers = $this->getDoctrine()->getManager()
+            ->getRepository('SchumaFaqBundle:Answer')
+            ->getLast(10);
+
+        return $this->render('SchumaFaqBundle::lastAnswers.html.twig', array(
+            'lastAnswers' => $lastAnswers
+        ));
+    }
 }

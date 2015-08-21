@@ -3,7 +3,7 @@
 
 {% block section_body %}
     <div class="page-header text-center">
-        <h2>{{ article.title }}</h2>
+        <h2>{{ article.title|title }}</h2>
         <p><i>Publié le {{ article.date|date('d-m-Y') }} par {{ article.author.username|title }}</i></p>
     </div>
 
@@ -13,16 +13,37 @@
     </p>
 
     <p class="text-justify">
-        {{ article.body|striptags('<br><h3><p><ul><li><b>')|raw }}
+        {{ article.body| bbcode_filter('my_bbcode_filter') }}
     </p>
 
-    <p>
+    <p class="text-right panel">
         {% if is_granted("ROLE_ADMIN") or app.user == article.author %}
             <a href="{{ path('schuma_blog_edit_article', {'id': article.id}) }}">
                 <span class="glyphicon glyphicon-pencil"></span> Editer l'article </a>
 
-            <a href="{{ path('schuma_blog_delete_article', {'id': article.id}) }}">
+            <a data-toggle="modal" data-target="#deleteMyArticle" class="modal-link">
                 <span class="glyphicon glyphicon-trash"></span> Supprimer l'article </a>
+
+
+            <div class="modal fade" id="deleteMyArticle" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Confirmer la suppression</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Attention cet article sera définitivement supprimé !</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-info" data-dismiss="modal">Annuler</button>
+                            <a href="{{ path('schuma_blog_delete_article', {'id': article.id}) }}" class="btn btn-danger">
+                                <span class="glyphicon glyphicon-trash"></span> Supprimer</a>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.modal -->
+
         {% endif %}
     </p>
 
@@ -39,36 +60,54 @@
                             <span class="glyphicon glyphicon-ok-sign"></span> Envoyer</button>
                     </div>
             {{ form_end(commentForm) }}
+            <br>
         {% endif %}
 
-        <br/>
-
+        <br>
         {% for comment in comments %}
             <div class="row">
-                <div class="col-xs-6">
-                    <h5><b>{{ comment.author.username|capitalize }}</b></h5>
-                </div>
-                <div class="col-xs-6 text-right">
-                    <h5><small><i>le {{ comment.date|date('d/m/Y \\à H:i') }}</i></small></h5>
-                </div>
-
-                <div class="col-xs-10">
-                    {{ comment.body }}
-                </div>
-                <div class="col-xs-2">
+                <div class="col-xs-2 text-right">
+                    <img src="{{ asset('img/logo-feuille.jpg') }}" alt="avatar" class="img-circle">
+                    <br>
                     {% if is_granted("ROLE_ADMIN") or app.user == comment.author %}
                         <a href="{{ path('schuma_blog_edit_comment', {'id': comment.id}) }}">
                             <span class="glyphicon glyphicon-edit"></span> éditer</a>
                         <br>
-                        <a href="{{ path('schuma_blog_delete_comment', {'id': comment.id}) }}">
-                            <span class="glyphicon glyphicon-trash"></span> supprimer</a>
+                        <a data-toggle="modal" data-target="#deleteComment{{ comment.id }}" class="modal-link">
+                            <span class="glyphicon glyphicon-trash"></span> suppr.</a>
                     {% endif %}
+                </div>
+
+                <div class="col-xs-10">
+                    <h5><b>{{ comment.author.username|capitalize }}</b>
+                        <small><i> {{ comment.date|date('d/m/Y \\à H:i') }}</i></small></h5>
+                    {{ comment.body }}
                 </div>
             </div>
 
             {% if loop.last == false  %}
                 <hr>
             {% endif %}
+
+
+            <div class="modal fade" id="deleteComment{{ comment.id }}" tabindex="-1" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Confirmer la suppression</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Attention ce commentaire sera définitivement supprimé !</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-info" data-dismiss="modal">Annuler</button>
+                            <a href="{{ path('schuma_blog_delete_comment', {'id': comment.id}) }}" class="btn btn-danger">
+                                <span class="glyphicon glyphicon-trash"></span> Supprimer</a>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.modal -->
         {% endfor %}
     </div>
-{% endblock %} 
+{% endblock %}

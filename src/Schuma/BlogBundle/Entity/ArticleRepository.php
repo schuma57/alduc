@@ -12,9 +12,9 @@ use Doctrine\ORM\EntityRepository;
  */
 class ArticleRepository extends EntityRepository{
 
-    public function getTwoLast(){
+    public function getLast($number = 5){
         $qb = $this->createQueryBuilder('a');
-        $qb->setMaxResults(2)
+        $qb->setMaxResults($number)
             ->orderBy('a.date', 'DESC');
         return $qb->getQuery()
             ->getResult();

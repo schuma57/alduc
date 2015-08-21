@@ -4,17 +4,34 @@
 
 
 {% block body %}
-    <section class="col-md-8 col-sm-8 col-xs-12">
+    <section class="col-md-7 col-md-offset-1 col-sm-8 col-xs-12">
     {% block section_body %}
     {% endblock %}
     </section>
 
-    <div class="col-md-4 col-sm-4 col-xs-12">
+    <div class="col-md-3 col-sm-4 col-xs-12">
         <hr class="visible-xs"/>
 
-        <h2>Nouveautés</h2>
         <div class="row">
-            {% render controller("SchumaBlogBundle:Article:displayNews") %}
+            <div class="col-sm-12 col-xs-6">
+                <h4 class="myWidget-title">NOUVEAUT&Eacute;S</h4>
+
+                <div class="panel panel-default myWidget">
+                    <ul class="list-group">
+                        {% render controller("SchumaBlogBundle:Article:displayNews") %}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-xs-6">
+                <h4 class="myWidget-title">COMMUNAUT&Eacute;</h4>
+
+                <div class="panel panel-default myWidget">
+                    <ul class="list-group">
+                        {% render controller("SchumaBlogBundle:Comment:displayLastComments") %}
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

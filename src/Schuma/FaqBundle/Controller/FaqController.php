@@ -138,7 +138,7 @@ class FaqController extends Controller
     public function displayLastQuestionsAction(){
         $lastQuestions = $this->getDoctrine()->getManager()
             ->getRepository('SchumaFaqBundle:Question')
-            ->getTwoLast();
+            ->getLast(10);
 
         return $this->render('SchumaFaqBundle::lastQuestions.html.twig', array(
             'lastQuestions' => $lastQuestions

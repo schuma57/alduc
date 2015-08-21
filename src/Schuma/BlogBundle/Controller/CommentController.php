@@ -77,4 +77,18 @@ class CommentController extends Controller{
 
         return $this->redirect($this->get('request')->headers->get('referer'));
     }
+
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function displayLastCommentsAction(){
+        $lastComments = $this->getDoctrine()->getManager()
+            ->getRepository('SchumaBlogBundle:Comment')
+            ->getLast(10);
+
+        return $this->render('SchumaBlogBundle::lastComments.html.twig', array(
+            'lastComments' => $lastComments
+        ));
+    }
 }
