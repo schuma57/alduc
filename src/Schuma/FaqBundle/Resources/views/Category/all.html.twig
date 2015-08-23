@@ -16,12 +16,39 @@
             <thead>
                 <tr>
                     <th>Nom</th>
+                    <th>Gestion</th>
                 </tr>
             </thead>
             <tbody>
             {% for item in list %}
                 <tr>
-                    <td>{{ item.name }}</td>
+                    <td>{{ item.name|upper }}</td>
+                    <td>
+                        <a href="{{ path('schuma_faq_edit_category', {'id': item.id}) }}" class="btn btn-info">
+                            <span class="glyphicon glyphicon-pencil"></span> Edit.</a>
+                        <a data-toggle="modal" data-target="#deleteCategory{{ item.id }}" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-trash"></span> Supp.</a>
+
+
+                        <div class="modal fade" id="deleteCategory{{ item.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Confirmer suppression</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        Attention la catégorie {{ item.name|upper }} sera définitivement supprimée !
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-info" data-dismiss="modal">Annuler</button>
+                                        <a href="{{ path('schuma_faq_delete_category', {'id': item.id}) }}" class="btn btn-danger">
+                                            <span class="glyphicon glyphicon-trash"></span> Supprimer</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- end modal -->
+                    </td>
                 </tr>
             {% endfor %}
             </tbody>

@@ -23,3 +23,7 @@ schuma_faq_delete_category:
     defaults: { _controller: SchumaFaqBundle:Category:delete }
     requirements:
         id: \d+
+
+schuma_faq_new_category_from_ajax:
+    path: /newcategory
+    defaults: { _controller: SchumaFaqBundle:Category:newCategoryFromAjax }

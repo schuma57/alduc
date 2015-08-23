@@ -11,12 +11,12 @@
 
         <div class="collapse navbar-collapse" id="collapses">
             <ul class="nav navbar-nav">
-                <li class="visible-md visible-lg"><a href="{{ path('schuma_blog_main') }}">
+                <li class="visible-md visible-lg special-tab"><a href="{{ path('schuma_blog_main') }}">
                         <span class="glyphicon glyphicon-home"></span></a></li>
                 <li><a href="{{ path('schuma_blog_master') }}"> Le master </a></li>
                 <li><a href="{{ path('schuma_blog_association') }}"> L'association </a></li>
                 <li><a href="{{ path('schuma_blog_all_article') }}"> L'actualité </a></li>
-                <li><a href="{{ path('schuma_blog_all_event') }}"> Evènements </a></li>
+                <li><a href="{{ path('schuma_blog_all_event') }}"> &Eacute;vènements </a></li>
 
                 {% if is_granted("ROLE_USER") %}
                     <li><a href="{{ path('schuma_blog_promo') }}"> Promo </a></li>
@@ -27,7 +27,7 @@
 
             <div class="pull-right">
                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                    Bonjour {{ app.user.username|capitalize }}
+                    <span class="text-in-white">Bonjour {{ app.user.username|capitalize }}</span>
                     <button class="btn btn-warning navbar-btn dropdown-toggle" data-toggle="dropdown">
                         <span class="glyphicon glyphicon-cog"></span>
                     </button>
@@ -48,7 +48,7 @@
                     </ul>
                 {% else %}
                     <a href="{{ path('fos_user_security_login') }}">
-                        <button type="button" class="btn btn-success navbar-btn">Login</button>
+                        <button type="button" class="btn btn-success navbar-btn">login</button>
                     </a>
                 {% endif %}
             </div>

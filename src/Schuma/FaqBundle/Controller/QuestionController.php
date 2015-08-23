@@ -3,27 +3,40 @@
 namespace Schuma\FaqBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Schuma\FaqBundle\Entity\Question;
 use Schuma\FaqBundle\Form\QuestionType;
 use Schuma\FaqBundle\Entity\Answer;
 use Schuma\FaqBundle\Form\AnswerType;
+use Schuma\FaqBundle\Form\CategorySearchType;
 
-class FaqController extends Controller
+class QuestionController extends Controller
 {
     /**
      * @Security("has_role('ROLE_USER')")
+     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function allAction(){
+    public function allAction(Request $request){
+        $criteria = array();
+
+        $categoryForm = $this->createForm(new CategorySearchType());
+
+        if($categoryForm->handleRequest($request)->isValid()){
+            if( !empty( $postedCategory = $categoryForm->getData()['category'] ) )
+                $criteria['category'] = $postedCategory;
+        }
+
         $questionList = $this->getDoctrine()
             ->getManager()
             ->getRepository('SchumaFaqBundle:Question')
-            ->findBy(array(), array('date'=>'DESC'));
+            ->findBy($criteria, array('date'=>'DESC'));
 
-        return $this->render('SchumaFaqBundle:Faq:all.html.twig', array(
+        return $this->render('SchumaFaqBundle:Question:all.html.twig', array(
             'list' => $questionList,
+            'categoryForm' => $categoryForm->createView(),
         ));
     }
 
@@ -52,7 +65,7 @@ class FaqController extends Controller
         $answerList = $em->getRepository('SchumaFaqBundle:Answer')
                 ->findBy(array('question' => $question), array('date' => 'DESC'));
 
-        return $this->render('SchumaFaqBundle:Faq:get.html.twig', array(
+        return $this->render('SchumaFaqBundle:Question:get.html.twig', array(
             'question' => $question,
             'answerForm' => $answerForm->createView(),
             'answerList' => $answerList,
@@ -62,14 +75,12 @@ class FaqController extends Controller
 
     /**
      * @Security("has_role('ROLE_USER')")
-     * @param Question $question
+     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function addAction(){
+    public function addAction(Request $request){
         $question = new Question();
         $form = $this->createForm(new QuestionType(), $question);
-
-        $request = $this->get('request');
 
         if($form->handleRequest($request)->isValid()){
             $question->setAuthor($this->getUser());
@@ -81,7 +92,7 @@ class FaqController extends Controller
             return $this->redirect($this->generateUrl('schuma_faq_all_question'));
         }
 
-        return $this->render('SchumaFaqBundle:Faq:add.html.twig', array(
+        return $this->render('SchumaFaqBundle:Question:add.html.twig', array(
             'form'=> $form->createView()
         ));
     }
@@ -98,7 +109,6 @@ class FaqController extends Controller
             ->userIsAuthorOrAdminOrThrowAccessDeniedException($question);
 
         $form = $this->createForm(new QuestionType(), $question);
-
         $request = $this->get('request');
 
         if($form->handleRequest($request)->isValid()){
@@ -111,7 +121,7 @@ class FaqController extends Controller
             )));
         }
 
-        return $this->render('SchumaFaqBundle:Faq:add.html.twig', array(
+        return $this->render('SchumaFaqBundle:Question:add.html.twig', array(
             'form'=> $form->createView()
         ));
     }

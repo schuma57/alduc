@@ -1,0 +1,65 @@
+{% extends "SchumaFaqBundle::layout.html.twig" %}
+
+
+{% block section_body %}
+    <div class="row">
+        <div class="col-xs-12">
+            {{ form_start(categoryForm, {'attr':{'class': 'form-horizontal'}}) }}
+                {{ form_errors(categoryForm) }}
+                <div class="form-group">
+                    {{ form_label(categoryForm.category, 'Catégorie', {'label_attr':{'class': 'control-label col-sm-2'}}) }}
+                    {{ form_errors(categoryForm.category) }}
+                    <div class="col-sm-10">
+                        {{ form_widget(categoryForm.category, {'attr':{'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                {{ form_rest(categoryForm) }}
+
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <button type="submit" class="btn btn-success col-xs-12 col-md-6 col-md-offset-3">
+                            <span class="glyphicon glyphicon-filter"></span> Filtrer</button>
+                    </div>
+                </div>
+            {{ form_end(categoryForm) }}
+        </div>
+    </div>
+    <hr>
+
+    {% if is_granted("ROLE_USER") %}
+        <p>
+            <a href="{{ path('schuma_faq_add_question') }}">
+                <span class="glyphicon glyphicon-plus"></span> Ajouter une question </a>
+
+            {% if is_granted("ROLE_ADMIN") %}
+                <a href="{{ path('schuma_faq_all_category') }}">
+                    <span class="glyphicon glyphicon-wrench"></span> Gérer les catégories</a>
+            {% endif %}
+        </p>
+    {% endif %}
+
+    {% if list is not null %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Question</th>
+                    <th>Auteur</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+
+            {% for item in list %}
+                <tr class="question-link">
+                    <td>
+                        <a href="{{ path('schuma_faq_get_question', {'id': item.id}) }}">
+                            {{ item.title }}
+                        </a>
+                    </td>
+                    <td>par {{ item.author.username|title }}</td>
+                    <td>le {{ item.date|date('d-m-Y\\, \\à H:i') }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+{% endblock %}

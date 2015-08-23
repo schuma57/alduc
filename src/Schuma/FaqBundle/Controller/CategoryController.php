@@ -36,7 +36,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * @Security("has_role('ROLE_ADMIN')")
+     * @Security("has_role('ROLE_USER')")
      */
     public function addAction(){
         $category = new Category();
@@ -58,11 +58,17 @@ class CategoryController extends Controller
     }
 
 
+    /**
+     * @Security("has_role('ROLE_USER')")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function newCategoryFromAjaxAction(Request $request){
         $category = new Category();
         $form = $this->createForm(new CategoryType(), $category,
-            array('action' => $this->generateUrl('new_faq_category'),
-                'method' => 'POST'));
+            array('action' => $this->generateUrl('schuma_faq_new_category_from_ajax'),
+                'method' => 'POST')
+        );
 
         $request = $this->get('request');
 
@@ -92,7 +98,7 @@ class CategoryController extends Controller
      * @Security("has_role('ROLE_ADMIN')")
      * @param Category $category
      */
-    public function editAction(Category $category){     //TODO l'auteur doit pouvoir modifier sa question
+    public function editAction(Category $category){
         $form = $this->createForm(new CategoryType(), $category);
 
         $request = $this->get('request');

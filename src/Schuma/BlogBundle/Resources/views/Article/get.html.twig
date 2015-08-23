@@ -1,9 +1,8 @@
 {% extends "SchumaBlogBundle::layout.html.twig" %}
 
-
 {% block section_body %}
     <div class="page-header text-center">
-        <h2>{{ article.title|title }}</h2>
+        <h2 class="article-title">{{ article.title|title }}</h2>
         <p><i>Publié le {{ article.date|date('d-m-Y') }} par {{ article.author.username|title }}</i></p>
     </div>
 

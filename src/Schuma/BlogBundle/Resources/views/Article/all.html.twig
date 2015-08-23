@@ -1,6 +1,5 @@
 {% extends "SchumaBlogBundle::layout.html.twig" %}
 
-
 {% block section_body %}
     <div class="page-header">
         <h2>L'actualité</h2>
@@ -16,13 +15,16 @@
     {% for item in list %}
         <a class="path_article" href="{{ path('schuma_blog_get_article', {'id' : item.id}) }}">
         <div class="panel panel-success article-panel">
-
-            <div class="panel-heading">
-                <h2 class="panel-title">{{ item.title }}
-                    <small>par {{ item.author.username|title }} le {{ item.date|date('d/m/Y') }}</small> </h2>
-            </div>
             <div class="panel-body">
-            {{ item.resume }}
+                <h3> <b>{{ item.title|capitalize }}</b>
+                    <small>par {{ item.author.username|title }} </small> </h3>
+
+                {{ item.resume }}
+
+                <div>
+                    <br>
+                    <small><span class="glyphicon glyphicon-time"></span> {{ item.date|date('d/m/Y') }}</small>
+                </div>
             </div>
         </div>
         </a>

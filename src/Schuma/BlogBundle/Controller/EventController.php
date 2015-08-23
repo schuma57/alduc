@@ -94,7 +94,9 @@ class EventController extends Controller{
         return $this->redirect($this->generateUrl('schuma_blog_all_event'));
     }
 
-
+    /**
+     * Sends a mail
+     */
     private function sendEmail(){
         $tab = array();
         $mailingList = $this->getDoctrine()
@@ -115,9 +117,9 @@ class EventController extends Controller{
     private function prepareEmail($list){
         $message = \Swift_Message::newInstance()
             ->setSubject("[ALDUC] Un nouvel évènement vient d'être ajouté")
-            ->setFrom('no-reply@alduc.fr')
+            ->setFrom($this->container->getParameter('mailer_user'))
             ->setTo($list)
-            ->setBody('')
+            ->setBody('Retrouvez tous les évènements, sur notre site. \n http://alduc.fr/evenements/')
         ;
 
         return $message;

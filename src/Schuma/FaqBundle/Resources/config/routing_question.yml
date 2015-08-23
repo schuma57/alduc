@@ -1,29 +1,25 @@
 schuma_faq_all_question:
     path:   /
-    defaults: { _controller: SchumaFaqBundle:Faq:all }
+    defaults: { _controller: SchumaFaqBundle:Question:all }
 
 schuma_faq_get_question:
     path:   /voir/{id}
-    defaults: { _controller: SchumaFaqBundle:Faq:get }
+    defaults: { _controller: SchumaFaqBundle:Question:get }
     requirements:
         id: \d+
 
 schuma_faq_add_question:
     path:   /ajouter
-    defaults: { _controller: SchumaFaqBundle:Faq:add }
+    defaults: { _controller: SchumaFaqBundle:Question:add }
 
 schuma_faq_edit_question:
     path:   /modifier/{id}
-    defaults: { _controller: SchumaFaqBundle:Faq:edit }
+    defaults: { _controller: SchumaFaqBundle:Question:edit }
     requirements:
         id: \d+
 
 schuma_faq_delete_question:
     path:   /supprimer/{id}
-    defaults: { _controller: SchumaFaqBundle:Faq:delete }
+    defaults: { _controller: SchumaFaqBundle:Question:delete }
     requirements:
         id: \d+
-
-new_faq_category:
-    path: /newcategory
-    defaults: { _controller: SchumaFaqBundle:Category:newCategoryFromAjax }
